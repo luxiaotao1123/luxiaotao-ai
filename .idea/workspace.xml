@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="436bd455-337d-4016-81dc-08aba9c673cc" name="Default" comment="v3.0">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.5/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.5/fileHashes/fileHashes.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.5/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.5/fileHashes/fileHashes.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" />
-      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/wuai/company/order/listener/Test.java" afterPath="$PROJECT_DIR$/order/src/main/java/com/wuai/company/order/listener/Test.java" />
-      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/wuai/company/order/listener/TrystCalFreeistenter.java" afterPath="$PROJECT_DIR$/order/src/main/java/com/wuai/company/order/listener/TrystCalFreeistenter.java" />
-      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/wuai/company/order/service/impl/TrystOrdersServiceImpl.java" afterPath="$PROJECT_DIR$/order/src/main/java/com/wuai/company/order/service/impl/TrystOrdersServiceImpl.java" />
-    </list>
+    <list default="true" readonly="true" id="436bd455-337d-4016-81dc-08aba9c673cc" name="Default" comment="v3.0" />
     <ignored path="$PROJECT_DIR$/commons/.gradle/" />
     <ignored path="$PROJECT_DIR$/commons/build/" />
     <ignored path="$PROJECT_DIR$/commons/out/" />
@@ -76,71 +69,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TrystOrdersServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/order/src/main/java/com/wuai/company/order/service/impl/TrystOrdersServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="370" column="26" lean-forward="false" selection-start-line="370" selection-start-column="26" selection-end-line="370" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MsgTypeEnum.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/commons/src/main/java/com/wuai/company/enums/MsgTypeEnum.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="27" column="4" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PayTypeEnum.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/commons/src/main/java/com/wuai/company/enums/PayTypeEnum.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/order/src/main/java/com/wuai/company/order/listener/Test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="45" column="62" lean-forward="false" selection-start-line="45" selection-start-column="62" selection-end-line="45" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user/src/main/java/com/wuai/company/user/service/impl/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="2032" column="91" lean-forward="true" selection-start-line="2032" selection-start-column="91" selection-end-line="2032" selection-end-column="91" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TrystCalFreeistenter.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/order/src/main/java/com/wuai/company/order/listener/TrystCalFreeistenter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-925">
-              <caret line="198" column="75" lean-forward="true" selection-start-line="198" selection-start-column="75" selection-end-line="198" selection-end-column="75" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="application.yaml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/order/src/main/resources/application.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3825">
-              <caret line="48" column="14" lean-forward="false" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
+            <state relative-caret-position="380">
+              <caret line="136" column="14" lean-forward="false" selection-start-line="136" selection-start-column="14" selection-end-line="136" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Service.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/order/src/main/java/com/wuai/company/Service.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="logback.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/order/src/main/resources/logback.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="11" column="15" lean-forward="false" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application-lxt.yaml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/order/src/main/resources/application-lxt.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="10" column="15" lean-forward="false" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RabbitMqConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/commons/src/main/java/com/wuai/company/config/RabbitMqConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="507">
+              <caret line="62" column="34" lean-forward="false" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -154,12 +127,12 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="spring-beans.schema" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>from t_tryst_receive</find>
       <find>addTrystOrdersReceive</find>
       <find>insertEaseMob</find>
       <find>赴约用户 取消订单</find>
@@ -189,6 +162,7 @@
       <find>autoDelete</find>
       <find>21</find>
       <find>DEMAND_EFFECT_TRYST</find>
+      <find>red</find>
     </findStrings>
     <dirStrings>
       <dir>E:\test2</dir>
@@ -2424,8 +2398,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/commons/src/main/java/com/wuai/company/util/MD5.java" />
-        <option value="$PROJECT_DIR$/commons/src/main/java/com/wuai/company/util/JwtToken.java" />
         <option value="$PROJECT_DIR$/order/src/main/java/com/wuai/company/order/service/impl/TrystEvaluationServiceImpl.java" />
         <option value="$PROJECT_DIR$/commons/src/main/java/com/wuai/company/entity/SnatchUser.java" />
         <option value="$PROJECT_DIR$/user/src/main/java/com/wuai/company/user/util/EaseMobUtils.java" />
@@ -2470,11 +2442,13 @@
         <option value="$PROJECT_DIR$/party/src/main/resources/partyMapper/PartyMapper.xml" />
         <option value="$PROJECT_DIR$/user/src/main/java/com/wuai/company/user/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/commons/src/main/java/com/wuai/company/enums/MsgTypeEnum.java" />
-        <option value="$PROJECT_DIR$/order/src/main/resources/application.yaml" />
         <option value="$PROJECT_DIR$/user/src/main/java/com/wuai/company/user/notify/AliNotify.java" />
         <option value="$PROJECT_DIR$/order/src/main/java/com/wuai/company/order/service/impl/TrystOrdersServiceImpl.java" />
         <option value="$PROJECT_DIR$/order/src/main/java/com/wuai/company/order/listener/Test.java" />
         <option value="$PROJECT_DIR$/order/src/main/java/com/wuai/company/order/listener/TrystCalFreeistenter.java" />
+        <option value="$PROJECT_DIR$/order/src/main/resources/logback.xml" />
+        <option value="$PROJECT_DIR$/order/src/main/resources/application.yaml" />
+        <option value="$PROJECT_DIR$/order/src/main/resources/application-lxt.yaml" />
       </list>
     </option>
   </component>
@@ -2490,7 +2464,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="y" value="53" />
     <option name="width" value="1936" />
@@ -2514,37 +2488,87 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="wuai" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="wuai" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="commons" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wuai" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="commons" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wuai" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="commons" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wuai" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="commons" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wuai" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="commons" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="company" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wuai" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="commons" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="company" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wuai" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="commons" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wuai" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="order" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="wuai" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="order" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="wuai" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="order" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="wuai" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="order" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
@@ -2552,7 +2576,7 @@
             </path>
             <path>
               <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="wuai" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="order" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
@@ -2561,51 +2585,7 @@
             </path>
             <path>
               <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="order" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="company" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="order" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="company" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
-              <item name="listener" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="order" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="company" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="order" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="company" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="wuai" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="order" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
@@ -2613,290 +2593,27 @@
             </path>
             <path>
               <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="scheduler" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="scheduler" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="scheduler" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="scheduler" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="scheduler" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="scheduler" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="scheduler" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="scheduler" type="462c0819:PsiDirectoryNode" />
-              <item name="job" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="scheduler" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="scheduler" type="462c0819:PsiDirectoryNode" />
-              <item name="listenter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="scheduler" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="scheduler" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="scheduler" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="scheduler" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="scheduler" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="wuai" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="order" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="scheduler" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="schedulerMapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="user" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="user" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="user" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="user" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="user" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="user" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="user" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="user" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="user" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="EaseMob" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="user" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="EaseMob" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="user" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="EaseMob" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="user" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="user" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="notify" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="user" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="user" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="user" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="user" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="user" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="userMapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="user" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="user" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="trystOrdersMapper" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="E:/CoolBlog-Dubbo/CoolBlog-Dubbo/back-end" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/test1/java/trunks/user/src/main/java/com/wuai/company/user/service/impl/UserServiceImpl.java" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -2911,11 +2628,15 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\wuai\order\src\main\resources" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.wuai.company.user.EaseMob" />
       <recent name="com.wuai.company.order.util.common" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\wuai\order\src\main\resources" />
       <recent name="E:\test2\user\src\main\java\com\wuai\company\user\EaseMob" />
       <recent name="E:\test2\user\src\main\resources" />
       <recent name="E:\test2\commons\lib" />
@@ -2933,7 +2654,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="Spring Boot.Service">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -3154,156 +2875,6 @@
     <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
     <supportedVersion>125</supportedVersion>
   </component>
-  <component name="SvnFileUrlMappingImpl">
-    <option name="myMappingRoots">
-      <list>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2" />
-          <option name="myCopyRoot" value="E:\test2" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\commons" />
-          <option name="myCopyRoot" value="E:\test2\commons" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\commons\src\main" />
-          <option name="myCopyRoot" value="E:\test2\commons\src\main" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\commons\src\test" />
-          <option name="myCopyRoot" value="E:\test2\commons\src\test" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\markingSystem" />
-          <option name="myCopyRoot" value="E:\test2\markingSystem" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\markingSystem\src\main" />
-          <option name="myCopyRoot" value="E:\test2\markingSystem\src\main" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\markingSystem\src\test" />
-          <option name="myCopyRoot" value="E:\test2\markingSystem\src\test" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\order" />
-          <option name="myCopyRoot" value="E:\test2\order" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\order\src\main" />
-          <option name="myCopyRoot" value="E:\test2\order\src\main" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\order\src\test" />
-          <option name="myCopyRoot" value="E:\test2\order\src\test" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\party" />
-          <option name="myCopyRoot" value="E:\test2\party" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\party\src\main" />
-          <option name="myCopyRoot" value="E:\test2\party\src\main" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\party\src\test" />
-          <option name="myCopyRoot" value="E:\test2\party\src\test" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\pms" />
-          <option name="myCopyRoot" value="E:\test2\pms" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\pms\src\main" />
-          <option name="myCopyRoot" value="E:\test2\pms\src\main" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\pms\src\test" />
-          <option name="myCopyRoot" value="E:\test2\pms\src\test" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\rpc" />
-          <option name="myCopyRoot" value="E:\test2\rpc" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\rpc\src\main" />
-          <option name="myCopyRoot" value="E:\test2\rpc\src\main" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\rpc\src\test" />
-          <option name="myCopyRoot" value="E:\test2\rpc\src\test" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\scheduler" />
-          <option name="myCopyRoot" value="E:\test2\scheduler" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\scheduler\src\main" />
-          <option name="myCopyRoot" value="E:\test2\scheduler\src\main" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\scheduler\src\test" />
-          <option name="myCopyRoot" value="E:\test2\scheduler\src\test" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\store" />
-          <option name="myCopyRoot" value="E:\test2\store" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\store\src\main" />
-          <option name="myCopyRoot" value="E:\test2\store\src\main" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\store\src\test" />
-          <option name="myCopyRoot" value="E:\test2\store\src\test" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\storeManage" />
-          <option name="myCopyRoot" value="E:\test2\storeManage" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\storeManage\src\main" />
-          <option name="myCopyRoot" value="E:\test2\storeManage\src\main" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\storeManage\src\test" />
-          <option name="myCopyRoot" value="E:\test2\storeManage\src\test" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\task" />
-          <option name="myCopyRoot" value="E:\test2\task" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\task\src\main" />
-          <option name="myCopyRoot" value="E:\test2\task\src\main" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\task\src\test" />
-          <option name="myCopyRoot" value="E:\test2\task\src\test" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\user" />
-          <option name="myCopyRoot" value="E:\test2\user" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\user\src\main" />
-          <option name="myCopyRoot" value="E:\test2\user\src\main" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2\user\src\test" />
-          <option name="myCopyRoot" value="E:\test2\user\src\test" />
-        </SvnCopyRootSimple>
-      </list>
-    </option>
-    <option name="myMoreRealMappingRoots">
-      <list>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\test2" />
-          <option name="myCopyRoot" value="E:\test2" />
-        </SvnCopyRootSimple>
-      </list>
-    </option>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="436bd455-337d-4016-81dc-08aba9c673cc" name="Default" comment="" />
@@ -3328,6 +2899,7 @@
       <workItem from="1522416260770" duration="11315000" />
       <workItem from="1522658991566" duration="5628000" />
       <workItem from="1522720051473" duration="19716000" />
+      <workItem from="1522823973712" duration="5484000" />
     </task>
     <task id="LOCAL-00001" summary="心跳添加经纬度，取消预约金">
       <created>1520324584712</created>
@@ -3638,7 +3210,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="499414000" />
+    <option name="totallyTimeSpent" value="504898000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -3650,7 +3222,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -3658,9 +3230,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -3672,22 +3242,24 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19783784" sideWeight="0.4946695" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5437838" sideWeight="0.4946695" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2835821" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2867804" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="combo" />
+      <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -3717,35 +3289,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/order/src/main/java/com/wuai/company/order/controller/SceneController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="76" column="31" lean-forward="false" selection-start-line="76" selection-start-column="31" selection-end-line="76" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/order/src/main/java/com/wuai/company/order/service/impl/SceneServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1771">
-          <caret line="127" column="49" lean-forward="false" selection-start-line="127" selection-start-column="37" selection-end-line="127" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/order/src/main/resources/static/com/wuai/company/order/controller/OrdersController.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2777">
-          <caret line="2431" column="49" lean-forward="false" selection-start-line="2431" selection-start-column="49" selection-end-line="2431" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/order/src/main/java/com/wuai/company/order/controller/OrdersController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="723">
-          <caret line="1432" column="32" lean-forward="false" selection-start-line="1432" selection-start-column="32" selection-end-line="1432" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/order/src/main/java/com/wuai/company/order/service/OrdersService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
@@ -3764,7 +3307,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="15" column="10" lean-forward="false" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3772,7 +3314,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="473">
           <caret line="2655" column="39" lean-forward="false" selection-start-line="2655" selection-start-column="39" selection-end-line="2655" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3780,7 +3321,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
           <caret line="45" column="106" lean-forward="true" selection-start-line="45" selection-start-column="106" selection-end-line="45" selection-end-column="106" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3795,13 +3335,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="628">
           <caret line="42" column="37" lean-forward="false" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="37" />
-          <folding>
-            <marker date="1520308748900" expanded="true" signature="1209:1254" ph="select * fro... t_time_task" />
-            <marker date="1520308748900" expanded="true" signature="1378:1652" ph="INSERT INTO t_time_task... " />
-            <marker date="1520308748900" expanded="true" signature="1474:1652" ph="SELECT ##{sch... dual" />
-            <marker date="1520308748900" expanded="true" signature="1573:1651" ph="SELECT time_... t_time_task" />
-            <marker date="1520308748900" expanded="true" signature="1732:2381" ph="UPDATE t_time_task... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3809,10 +3342,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1550">
           <caret line="94" column="37" lean-forward="false" selection-start-line="94" selection-start-column="16" selection-end-line="94" selection-end-column="37" />
-          <folding>
-            <element signature="e#2697#2698#0" expanded="false" />
-            <element signature="e#2749#2750#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3827,7 +3356,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6875">
           <caret line="287" column="4" lean-forward="false" selection-start-line="287" selection-start-column="4" selection-end-line="287" selection-end-column="93" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3835,12 +3363,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13300">
           <caret line="678" column="53" lean-forward="false" selection-start-line="678" selection-start-column="53" selection-end-line="678" selection-end-column="53" />
-          <folding>
-            <element signature="e#19026#19027#0" expanded="false" />
-            <element signature="e#19088#19089#0" expanded="false" />
-            <element signature="e#19354#19355#0" expanded="false" />
-            <element signature="e#19414#19415#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3848,7 +3370,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="86" column="27" lean-forward="true" selection-start-line="86" selection-start-column="27" selection-end-line="86" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3856,15 +3377,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="472">
           <caret line="76" column="50" lean-forward="true" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commons/src/main/java/com/wuai/company/config/RabbitMqConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11900">
-          <caret line="494" column="31" lean-forward="false" selection-start-line="494" selection-start-column="31" selection-end-line="494" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3872,7 +3384,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="700">
           <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3894,30 +3405,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="21" column="21" lean-forward="false" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-          <folding>
-            <marker date="1522660105738" expanded="true" signature="370:829" ph="SELECT b.*,a... t_party" />
-            <marker date="1522660105738" expanded="true" signature="439:589" ph="SELECT COUNT... t_party_collections" />
-            <marker date="1522660105738" expanded="true" signature="975:1173" ph="SELECT a.*,C... t_party" />
-            <marker date="1522660105738" expanded="true" signature="1318:1660" ph="SELECT a.*,C... t_party" />
-            <marker date="1522660105738" expanded="true" signature="1461:1571" ph="SELECT COUNT... t_party_collections" />
-            <marker date="1522660105738" expanded="true" signature="1712:2110" ph="INSERT into t_party_orders... " />
-            <marker date="1522660105738" expanded="true" signature="1877:2110" ph="SELECT ##{par... dual" />
-            <marker date="1522660105738" expanded="true" signature="2054:2109" ph="SELECT uuid t_party_orders" />
-            <marker date="1522660105738" expanded="true" signature="2242:2350" ph="SELECT * fro... t_party_orders" />
-            <marker date="1522660105738" expanded="true" signature="2444:2565" ph="SELECT COUNT... t_party_orders" />
-            <marker date="1522660105738" expanded="true" signature="2649:2708" ph="SELECT `valu... t_sys" />
-            <marker date="1522660105738" expanded="true" signature="2836:2905" ph="SELECT * fro... t_party_orders" />
-            <marker date="1522660105738" expanded="true" signature="2960:3169" ph="insert into t_party_collections... " />
-            <marker date="1522660105738" expanded="true" signature="3027:3169" ph="SELECT ##{uui... dual" />
-            <marker date="1522660105738" expanded="true" signature="3076:3168" ph="SELECT * fro... t_party_collections" />
-            <marker date="1522660105738" expanded="true" signature="3224:3306" ph="DELETE from t_party_collections... " />
-            <marker date="1522660105738" expanded="true" signature="3358:3582" ph="insert into t_party_message... " />
-            <marker date="1522660105738" expanded="true" signature="3441:3582" ph="SELECT ##{id}... dual" />
-            <marker date="1522660105738" expanded="true" signature="3530:3581" ph="SELECT * fro... t_party_message" />
-            <marker date="1522660105738" expanded="true" signature="3668:3772" ph="SELECT count... t_party_message" />
-            <marker date="1522660105738" expanded="true" signature="3889:4064" ph="SELECT a.* ,... t_party_message" />
-            <marker date="1522660105738" expanded="true" signature="4187:4372" ph="SELECT b.* f... t_party" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3925,7 +3412,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3933,7 +3419,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3941,7 +3426,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="76" column="28" lean-forward="false" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3949,7 +3433,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-72">
           <caret line="56" column="38" lean-forward="false" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3957,7 +3440,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
           <caret line="134" column="29" lean-forward="true" selection-start-line="134" selection-start-column="29" selection-end-line="134" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3965,7 +3447,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3973,7 +3454,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="498">
           <caret line="88" column="20" lean-forward="true" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3981,7 +3461,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3989,7 +3468,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3997,7 +3475,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
           <caret line="24" column="18" lean-forward="false" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4005,7 +3482,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="355">
           <caret line="120" column="90" lean-forward="false" selection-start-line="120" selection-start-column="90" selection-end-line="120" selection-end-column="90" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4013,7 +3489,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
           <caret line="121" column="9" lean-forward="false" selection-start-line="121" selection-start-column="9" selection-end-line="121" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4021,7 +3496,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4029,7 +3503,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="173" column="11" lean-forward="false" selection-start-line="173" selection-start-column="11" selection-end-line="173" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4037,151 +3510,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
           <caret line="166" column="67" lean-forward="false" selection-start-line="166" selection-start-column="67" selection-end-line="166" selection-end-column="67" />
-          <folding>
-            <marker date="1522404538639" expanded="true" signature="7269:7328" ph="SELECT cid F... t_user" />
-            <marker date="1522404538639" expanded="true" signature="7486:7546" ph="SELECT type t_user" />
-            <marker date="1522404538639" expanded="true" signature="7704:7769" ph="select uuid t_user" />
-            <marker date="1522404538639" expanded="true" signature="7937:8009" ph="select * fro... t_user" />
-            <marker date="1522404538639" expanded="true" signature="8124:8366" ph="INSERT INTO t_user... " />
-            <marker date="1522404538639" expanded="true" signature="8217:8366" ph="SELECT ##{uui... dual" />
-            <marker date="1522404538639" expanded="true" signature="8320:8365" ph="SELECT uuid t_user" />
-            <marker date="1522404538639" expanded="true" signature="8448:9221" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="9324:9383" ph="SELECT * fro... t_user" />
-            <marker date="1522404538639" expanded="true" signature="9437:9564" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="9625:10332" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="10384:10535" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="10585:10727" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="10822:10905" ph="SELECT * fro... t_user" />
-            <marker date="1522404538639" expanded="true" signature="10957:11106" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="11159:11303" ph="INSERT INTO t_feedback" />
-            <marker date="1522404538639" expanded="true" signature="11358:11566" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="11695:12298" ph="SELECT * fro... uuid" />
-            <marker date="1522404538639" expanded="true" signature="11715:11932" ph="select a.uui... t_orders" />
-            <marker date="1522404538639" expanded="true" signature="11949:12237" ph="SELECT d.uui... t_orders" />
-            <marker date="1522404538639" expanded="true" signature="12114:12165" ph="select * fro... t_orders_receive" />
-            <marker date="1522404538639" expanded="true" signature="12560:12695" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="12753:12965" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="13088:13188" ph="SELECT uuid,... t_details" />
-            <marker date="1522404538639" expanded="true" signature="13322:13452" ph="SELECT uuid,... t_details" />
-            <marker date="1522404538639" expanded="true" signature="13497:13553" ph="UPDATE t_details... " />
-            <marker date="1522404538639" expanded="true" signature="13652:13728" ph="select a.* f... t_user" />
-            <marker date="1522404538639" expanded="true" signature="13865:14111" ph="select a.typ... t_store_orders" />
-            <marker date="1522404538639" expanded="true" signature="14230:14391" ph="SELECT b.pho... t_orders_receive" />
-            <marker date="1522404538639" expanded="true" signature="14495:14578" ph="select * fro... t_orders" />
-            <marker date="1522404538639" expanded="true" signature="14684:14753" ph="select * fro... t_orders" />
-            <marker date="1522404538639" expanded="true" signature="14811:15145" ph="insert into t_recharge_sheet... " />
-            <marker date="1522404538639" expanded="true" signature="14932:15145" ph="SELECT ##{use... dual" />
-            <marker date="1522404538639" expanded="true" signature="15089:15143" ph="SELECT uuid t_recharge_sheet" />
-            <marker date="1522404538639" expanded="true" signature="15195:15295" ph="UPDATE t_orders... " />
-            <marker date="1522404538639" expanded="true" signature="15403:15488" ph="select * fro... t_store_orders" />
-            <marker date="1522404538639" expanded="true" signature="15545:15647" ph="UPDATE t_store_orders... " />
-            <marker date="1522404538639" expanded="true" signature="15701:15841" ph="insert into t_details... " />
-            <marker date="1522404538639" expanded="true" signature="15951:16025" ph="select * fro... t_merchant_user" />
-            <marker date="1522404538639" expanded="true" signature="16137:16213" ph="select * fro... t_merchant_user" />
-            <marker date="1522404538639" expanded="true" signature="16278:16490" ph="UPDATE t_merchant_user... " />
-            <marker date="1522404538639" expanded="true" signature="16545:16646" ph="insert into t_withdraw_cash... " />
-            <marker date="1522404538639" expanded="true" signature="16702:16779" ph="update t_user... " />
-            <marker date="1522404538639" expanded="true" signature="16888:16926" ph="SELECT * fro... t_scene" />
-            <marker date="1522404538639" expanded="true" signature="17036:17101" ph="SELECT * fro... t_scene" />
-            <marker date="1522404538639" expanded="true" signature="17158:17441" ph="insert into t_details... " />
-            <marker date="1522404538639" expanded="true" signature="17265:17441" ph="SELECT ##{det... dual" />
-            <marker date="1522404538639" expanded="true" signature="17393:17440" ph="SELECT uuid t_details" />
-            <marker date="1522404538639" expanded="true" signature="17497:17548" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="17645:17684" ph="SELECT * fro... t_user" />
-            <marker date="1522404538639" expanded="true" signature="17732:17784" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="17838:17896" ph="UPDATE t_merchant_user... " />
-            <marker date="1522404538639" expanded="true" signature="18007:18094" ph="select * fro... t_user" />
-            <marker date="1522404538639" expanded="true" signature="18152:18208" ph="UPDATE t_merchant_user... " />
-            <marker date="1522404538639" expanded="true" signature="18317:18365" ph="SELECT * FRO... t_merchant_user" />
-            <marker date="1522404538639" expanded="true" signature="18425:18493" ph="UPDATE t_orders_receive... " />
-            <marker date="1522404538639" expanded="true" signature="18558:18613" ph="UPDATE t_orders... " />
-            <marker date="1522404538639" expanded="true" signature="18671:18744" ph="UPDATE t_orders... " />
-            <marker date="1522404538639" expanded="true" signature="18851:19012" ph="SELECT * fro... t_orders" />
-            <marker date="1522404538639" expanded="true" signature="19060:19185" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="19238:19489" ph="INSERT into t_user... " />
-            <marker date="1522404538639" expanded="true" signature="19329:19489" ph="SELECT ##{nic... dual" />
-            <marker date="1522404538639" expanded="true" signature="19443:19488" ph="SELECT uuid t_user" />
-            <marker date="1522404538639" expanded="true" signature="19549:19805" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="19862:20105" ph="INSERT INTO t_work_proof... " />
-            <marker date="1522404538639" expanded="true" signature="20190:20239" ph="SELECT value... t_sys" />
-            <marker date="1522404538639" expanded="true" signature="20343:20388" ph="SELECT * fro... t_admin" />
-            <marker date="1522404538639" expanded="true" signature="20441:20548" ph="INSERT into t_admin" />
-            <marker date="1522404538639" expanded="true" signature="20607:20847" ph="insert into t_operation_note... " />
-            <marker date="1522404538639" expanded="true" signature="20696:20847" ph="SELECT ##{ope... dual" />
-            <marker date="1522404538639" expanded="true" signature="20785:20846" ph="select uuid t_operation_note" />
-            <marker date="1522404538639" expanded="true" signature="20902:21070" ph="UPDATE t_admin... " />
-            <marker date="1522404538639" expanded="true" signature="21197:21273" ph="SELECT * fro... t_bound_member" />
-            <marker date="1522404538639" expanded="true" signature="21329:21537" ph="insert into t_bound_member... " />
-            <marker date="1522404538639" expanded="true" signature="21394:21537" ph="SELECT ##{uui... dual" />
-            <marker date="1522404538639" expanded="true" signature="21467:21535" ph="SELECT uuid t_bound_member" />
-            <marker date="1522404538639" expanded="true" signature="21592:21730" ph="update t_bound_member... " />
-            <marker date="1522404538639" expanded="true" signature="22091:22198" ph="SELECT * fro... t_user" />
-            <marker date="1522404538639" expanded="true" signature="22259:22403" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="22458:22617" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="22668:22730" ph="UPDATE t_task_pay " />
-            <marker date="1522404538639" expanded="true" signature="22802:23100" ph="insert into t_details... " />
-            <marker date="1522404538639" expanded="true" signature="22919:23100" ph="SELECT ##{det... dual" />
-            <marker date="1522404538639" expanded="true" signature="23052:23099" ph="SELECT uuid t_details" />
-            <marker date="1522404538639" expanded="true" signature="23198:23259" ph="SELECT * fro... t_user" />
-            <marker date="1522404538639" expanded="true" signature="23316:23488" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="23575:23621" ph="SELECT `valu... t_sys" />
-            <marker date="1522404538639" expanded="true" signature="23683:23760" ph="UPDATE t_store_orders " />
-            <marker date="1522404538639" expanded="true" signature="23813:23864" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="23984:24032" ph="SELECT * fro... t_task_pay" />
-            <marker date="1522404538639" expanded="true" signature="24154:24206" ph="SELECT * fro... t_party_orders" />
-            <marker date="1522404538639" expanded="true" signature="24258:24326" ph="UPDATE t_party_orders... " />
-            <marker date="1522404538639" expanded="true" signature="24455:24571" ph="SELECT * fro... t_party_orders" />
-            <marker date="1522404538639" expanded="true" signature="24624:24681" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="24801:24893" ph="SELECT * fro... t_user_video" />
-            <marker date="1522404538639" expanded="true" signature="25030:25128" ph="SELECT * fro... t_user_video" />
-            <marker date="1522404538639" expanded="true" signature="25176:25394" ph="insert into t_user_video... " />
-            <marker date="1522404538639" expanded="true" signature="25260:25394" ph="SELECT ##{uui... dual" />
-            <marker date="1522404538639" expanded="true" signature="25343:25393" ph="SELECT uuid t_user_video" />
-            <marker date="1522404538639" expanded="true" signature="25514:25582" ph="SELECT * fro... t_user_video" />
-            <marker date="1522404538639" expanded="true" signature="25631:25882" ph="UPDATE t_user_video... " />
-            <marker date="1522404538639" expanded="true" signature="25932:25989" ph="update t_user_video... " />
-            <marker date="1522404538639" expanded="true" signature="26105:26175" ph="select * fro... t_user_video" />
-            <marker date="1522404538639" expanded="true" signature="26302:26426" ph="select ##{uui... dual" />
-            <marker date="1522404538639" expanded="true" signature="26370:26425" ph="SELECT uuid t_recharge_orders" />
-            <marker date="1522404538639" expanded="true" signature="26556:26629" ph="SELECT * fro... t_recharge_orders" />
-            <marker date="1522404538639" expanded="true" signature="26727:26799" ph="SELECT * fro... t_coupons" />
-            <marker date="1522404538639" expanded="true" signature="26915:27077" ph="SELECT * fro... t_coupons_orders" />
-            <marker date="1522404538639" expanded="true" signature="27135:27335" ph="insert into t_coupons_orders... " />
-            <marker date="1522404538639" expanded="true" signature="27205:27335" ph="SELECT ##{uui... dual" />
-            <marker date="1522404538639" expanded="true" signature="27280:27334" ph="SELECT uuid t_coupons_orders" />
-            <marker date="1522404538639" expanded="true" signature="27392:27462" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="27593:27749" ph="SELECT * fro... t_coupons_orders" />
-            <marker date="1522404538639" expanded="true" signature="27860:27932" ph="SELECT * fro... t_tryst_orders" />
-            <marker date="1522404538639" expanded="true" signature="27990:28096" ph="UPDATE t_tryst_orders... " />
-            <marker date="1522404538639" expanded="true" signature="28222:28277" ph="SELECT pic F... t_tryst_scene" />
-            <marker date="1522404538639" expanded="true" signature="28407:28466" ph="SELECT conte... t_tryst_scene" />
-            <marker date="1522404538639" expanded="true" signature="28594:28710" ph="SELECT FROM t_tryst_receive" />
-            <marker date="1522404538639" expanded="true" signature="28773:28868" ph="DELETE FROM t_tryst_receive... " />
-            <marker date="1522404538639" expanded="true" signature="28936:29053" ph="UPDATE t_tryst_receive... " />
-            <marker date="1522404538639" expanded="true" signature="29150:29247" ph="UPDATE t_tryst_orders... " />
-            <marker date="1522404538639" expanded="true" signature="29306:29373" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="29472:29639" ph="SELECT FROM t_user" />
-            <marker date="1522404538639" expanded="true" signature="29554:29637" ph="SELECT user_... t_tryst_receive" />
-            <marker date="1522404538639" expanded="true" signature="29729:29769" ph="select id fr... t_user" />
-            <marker date="1522404538639" expanded="true" signature="29902:30048" ph="select ##{uui... dual" />
-            <marker date="1522404538639" expanded="true" signature="29973:30047" ph="SELECT uuid t_identity_proof" />
-            <marker date="1522404538639" expanded="true" signature="30204:30820" ph="SELECT FROM t_identity_proof" />
-            <marker date="1522404538639" expanded="true" signature="30977:31421" ph="SELECT FROM t_identity_proof" />
-            <marker date="1522404538639" expanded="true" signature="31766:31815" ph="SELECT phone... t_user" />
-            <marker date="1522404538639" expanded="true" signature="31766:31835" ph="SELECT phone... t_user" />
-            <marker date="1522404538639" expanded="true" signature="31952:32091" ph="select ##{uui... dual" />
-            <marker date="1522404538639" expanded="true" signature="32017:32090" ph="SELECT uuid t_tryst_easemob" />
-            <marker date="1522404538639" expanded="true" signature="32219:32283" ph="SELECT group... t_tryst_easemob" />
-            <marker date="1522404538639" expanded="true" signature="32219:32303" ph="SELECT group... t_tryst_easemob" />
-            <marker date="1522404538639" expanded="true" signature="32358:32432" ph="UPDATE t_tryst_easemob... " />
-            <marker date="1522404538639" expanded="true" signature="32358:32443" ph="UPDATE t_tryst_easemob... " />
-            <marker date="1522404538639" expanded="true" signature="32496:32549" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="32496:32578" ph="UPDATE t_user... " />
-            <marker date="1522404538639" expanded="true" signature="32638:32839" ph="insert into t_tryst_receive... " />
-            <marker date="1522404538639" expanded="true" signature="32711:32839" ph="SELECT ##{uui... dual" />
-            <marker date="1522404538639" expanded="true" signature="32784:32837" ph="select uuid t_tryst_receive" />
-            <marker date="1522404538639" expanded="true" signature="32897:32988" ph="UPDATE t_tryst_receive... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4189,7 +3517,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="740">
           <caret line="503" column="29" lean-forward="false" selection-start-line="503" selection-start-column="29" selection-end-line="503" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4205,7 +3532,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="116" column="40" lean-forward="false" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4213,13 +3539,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="354">
           <caret line="52" column="21" lean-forward="false" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/order/src/main/java/com/wuai/company/order/listener/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
+        <state relative-caret-position="825">
           <caret line="45" column="62" lean-forward="false" selection-start-line="45" selection-start-column="62" selection-end-line="45" selection-end-column="62" />
           <folding />
         </state>
@@ -4229,7 +3554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="337">
           <caret line="235" column="31" lean-forward="false" selection-start-line="235" selection-start-column="31" selection-end-line="235" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4237,7 +3561,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="48" column="28" lean-forward="true" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4245,29 +3568,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-136">
           <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/order/src/main/resources/application.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3825">
-          <caret line="48" column="14" lean-forward="false" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/user/src/main/java/com/wuai/company/user/service/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="2032" column="91" lean-forward="true" selection-start-line="2032" selection-start-column="91" selection-end-line="2032" selection-end-column="91" />
+        <state relative-caret-position="49000">
+          <caret line="2032" column="91" lean-forward="false" selection-start-line="2032" selection-start-column="91" selection-end-line="2032" selection-end-column="91" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/commons/src/main/java/com/wuai/company/enums/MsgTypeEnum.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
+        <state relative-caret-position="675">
           <caret line="27" column="4" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
           <folding />
         </state>
@@ -4275,7 +3589,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/order/src/main/java/com/wuai/company/order/service/impl/TrystOrdersServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
+        <state relative-caret-position="8325">
           <caret line="370" column="26" lean-forward="false" selection-start-line="370" selection-start-column="26" selection-end-line="370" selection-end-column="26" />
           <folding />
         </state>
@@ -4283,7 +3597,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/commons/src/main/java/com/wuai/company/enums/PayTypeEnum.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
+        <state relative-caret-position="400">
           <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
           <folding />
         </state>
@@ -4291,8 +3605,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/order/src/main/java/com/wuai/company/order/listener/TrystCalFreeistenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-925">
-          <caret line="198" column="75" lean-forward="true" selection-start-line="198" selection-start-column="75" selection-end-line="198" selection-end-column="75" />
+        <state relative-caret-position="475">
+          <caret line="216" column="0" lean-forward="false" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commons/src/main/resources/logback-spring.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/order/src/main/resources/logback.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="15" lean-forward="false" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commons/src/main/java/com/wuai/company/config/RabbitMqConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="62" column="34" lean-forward="false" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/order/src/main/java/com/wuai/company/Service.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/order/src/main/resources/application.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="136" column="14" lean-forward="false" selection-start-line="136" selection-start-column="14" selection-end-line="136" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/order/src/main/resources/application-lxt.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="10" column="15" lean-forward="false" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
           <folding />
         </state>
       </provider>
