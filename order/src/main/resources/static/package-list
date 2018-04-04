@@ -1,0 +1,8 @@
+com.wuai.company.marking.controller
+com.wuai.company.order.controller
+com.wuai.company.party.controller
+com.wuai.company.pms.controller
+com.wuai.company.store.controller
+com.wuai.company.store.manage.controller
+com.wuai.company.user.controller
+com.wuai.company.user.notify

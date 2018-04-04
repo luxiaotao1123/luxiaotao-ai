@@ -1,0 +1,26 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+
+jar {
+
+    baseName "user"
+}
+
+dependencies {
+    compile group: 'org.msgpack', name: 'msgpack', version: '0.6.12'
+    compile fileTree(dir: 'lib', include: ['*.jar'])
+    compile 'com.qiniu:qiniu-java-sdk:7.2.3'
+    compile 'commons-codec:commons-codec:1.10'
+    compile 'commons-logging:commons-logging:1.2'
+    compile 'commons-httpclient:commons-httpclient:3.1'
+    compile 'com.easemob:rest-java-sdk:1.0.0'
+    compile project(':commons')
+    compile project(':task')
+    compile project(':rpc')
+    compile group: 'org.mybatis.generator', name: 'mybatis-generator-core', version: '1.3.5'
+}

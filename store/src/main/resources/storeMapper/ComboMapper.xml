@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuai.company.store.mapper.ComboMapper">
+
+    <resultMap id="ComboResult" type="Combo">
+        <result column="id" property="id" jdbcType="INTEGER" javaType="Integer"/>
+        <result column="uuid" property="uid" jdbcType="VARCHAR" javaType="String"/>
+        <result column="store_id" property="storeId" jdbcType="VARCHAR" javaType="String"/>
+        <result column="combo" property="combo" jdbcType="VARCHAR" javaType="String"/>
+        <result column="picture" property="picture" jdbcType="VARCHAR" javaType="String"/>
+        <result column="price" property="price" jdbcType="DOUBLE" javaType="Double"/>
+        <result column="privilege" property="privilege" jdbcType="VARCHAR" javaType="String"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+        <result column="deleted" property="deleted" jdbcType="TINYINT" javaType="Integer"/>
+    </resultMap>
+
+
+    <cache flushInterval="40000" eviction="FIFO"/>
+   <select id="storeDetails" resultMap="ComboResult">
+       SELECT * FROM t_combo WHERE store_id=#{uid} and deleted = FALSE limit #{pageNum},10
+   </select>
+    <select id="findComboByUid" resultMap="ComboResult">
+        SELECT * from t_combo where uuid = #{uid} and deleted = FALSE
+    </select>
+</mapper>

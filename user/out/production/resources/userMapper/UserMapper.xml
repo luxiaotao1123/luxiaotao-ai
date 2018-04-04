@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuai.company.user.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.wuai.company.entity.User">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="uuid" jdbcType="VARCHAR" property="uuid"/>
+        <result column="nick_name" jdbcType="VARCHAR" property="nickname"/>
+        <result column="gender" jdbcType="INTEGER" property="gender"/>
+        <result column="phone_num" jdbcType="VARCHAR" property="phoneNum"/>
+        <result column="load_name" jdbcType="VARCHAR" property="loadName"/>
+        <result column="load_pass" jdbcType="VARCHAR" property="loadPass"/>
+        <result column="gold_money" jdbcType="DOUBLE" property="goldMoney"/>
+        <result column="money" jdbcType="DOUBLE" property="money"/>
+        <result column="icon" jdbcType="VARCHAR" property="icon"/>
+        <result column="picture" jdbcType="VARCHAR" property="picture"/>
+        <result column="age" jdbcType="VARCHAR" property="age"/>
+        <result column="user_grade" jdbcType="INTEGER" property="userGrade"/>
+        <result column="occupation" jdbcType="VARCHAR" property="occupation"/>
+        <result column="height" jdbcType="VARCHAR" property="height"/>
+        <result column="weight" jdbcType="VARCHAR" property="weight"/>
+        <result column="city" jdbcType="VARCHAR" property="city"/>
+        <result column="zodiac" jdbcType="VARCHAR" property="zodiac"/>
+        <result column="birthday" jdbcType="VARCHAR" property="birthday"/>
+        <result column="real_name" jdbcType="VARCHAR" property="realName"/>
+        <result column="account_num" jdbcType="VARCHAR" property="accountNum"/>
+        <result column="label" jdbcType="VARCHAR" property="label"/>
+        <result column="accumulate_points" jdbcType="INTEGER" property="accumulatePoints"/>
+        <result column="signature" jdbcType="VARCHAR" property="signature"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="deleted" jdbcType="BOOLEAN" property="deleted"/>
+        <result column="cid" jdbcType="VARCHAR" property="cid"/>
+        <result column="equipment_id" jdbcType="VARCHAR" property="equipmentId"/>
+        <result column="type" jdbcType="INTEGER" property="type"/>
+        <result column="id_card" jdbcType="VARCHAR" property="idCard"/>
+        <result column="on_off" jdbcType="INTEGER" property="onOff"/>
+        <result column="consume_money" jdbcType="DOUBLE" property="consumeMoney"/>
+        <result column="superior_user" jdbcType="INTEGER" property="superiorUser"/>
+        <result column="pay_pass" jdbcType="VARCHAR" property="payPass"/>
+        <result column="stop_back_money" jdbcType="INTEGER" property="stopBackMoney"/>
+        <result column="video" jdbcType="VARCHAR" property="video"/>
+        <result column="video_check" jdbcType="INTEGER" property="videoCheck"/>
+        <result column="video_time" jdbcType="VARCHAR" property="videoTime"/>
+    </resultMap>
+
+    <resultMap id="UserResult" type="User">
+        <result column="id" property="id" jdbcType="INTEGER" javaType="Integer"/>
+        <result column="uuid" property="uuid" jdbcType="VARCHAR" javaType="String"/>
+        <result column="icon" property="icon" jdbcType="VARCHAR" javaType="String"/>
+        <result column="gender" property="gender" jdbcType="VARCHAR" javaType="String"/>
+        <result column="nick_name" property="nickname" jdbcType="VARCHAR" javaType="String"/>
+        <result column="phone_num" property="phoneNum" jdbcType="INTEGER" javaType="Integer"/>
+        <result column="load_name" property="loadName" jdbcType="VARCHAR" javaType="String"/>
+        <result column="load_pass" property="loadPass" jdbcType="VARCHAR" javaType="String"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+        <result column="deleted" property="deleted" jdbcType="TINYINT" javaType="Integer"/>
+        <result column="on_off" property="onOff" jdbcType="INTEGER" javaType="Integer"/>
+    </resultMap>
+
+    <resultMap id="TrystReceiveResult" type="com.wuai.company.entity.TrystReceive">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="uuid" jdbcType="VARCHAR" property="uuid" />
+        <result column="tryst_id" jdbcType="VARCHAR" property="trystId" />
+        <result column="user_id" jdbcType="INTEGER" property="userId" />
+        <result column="money" jdbcType="DOUBLE" property="money" />
+        <result column="star" jdbcType="INTEGER" property="star" />
+        <result column="evaluation" jdbcType="VARCHAR" property="evaluation" />
+        <result column="tip" jdbcType="VARCHAR" property="tip" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+        <result column="deleted" jdbcType="BOOLEAN" property="deleted" />
+    </resultMap>
+    
+    <resultMap id="IdentityProofResult" type="com.wuai.company.entity.request.IdentityProof" >
+     <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="proof" jdbcType="VARCHAR" property="proof" />
+    <result column="id_number" jdbcType="VARCHAR" property="idNumber" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="satrt_date" jdbcType="VARCHAR" property="satrtDate" />
+    <result column="end_date" jdbcType="VARCHAR" property="endDate" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  
+  
+    <sql id="User_Base_List">
+        id, uuid, nick_name, gender, phone_num, load_name, load_pass, gold_money, money, icon, picture, age, user_grade, occupation, height, weight, city, zodiac, real_name, account_num, label, accumulate_points, signature, create_time, update_time, deleted, cid, equipment_id, type, id_card, on_off, consume_money, superior_user, pay_pass, stop_back_money, video, video_check, video_time
+    </sql>
+
+    <sql id="Receive_Base_List">
+        id, uuid, tryst_id, user_id, money, star, evaluation, tip, create_time, update_time, deleted
+    </sql>
+   
+    <sql id="IdentityProof_Column_List" >
+    id, uuid, user_id, proof, id_number, real_name, satrt_date, end_date, state, deleted, 
+    create_time, update_time, remark
+    </sql>
+   
+    <!--<cache flushInterval="40000" eviction="FIFO"/>-->
+
+    <!--根据用户id找到用户cid-->
+    <select id="selectCidById" parameterType="java.lang.Integer" resultType="java.lang.String">
+        SELECT cid
+        FROM t_user
+        WHERE id = #{userId}
+    </select>
+
+    <!--根据用户id找到用户的type（安卓还是ios）-->
+    <select id="selectTypeById" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        SELECT type
+        FROM t_user
+        WHERE id = #{userId}
+    </select>
+
+    <!--<select id="findUserOneById" resultMap="UserResult">-->
+    <select id="findUserOneById" resultType="com.wuai.company.entity.User">
+		select uuid from t_user where id=#{id} and deleted =FALSE limit 1;
+	</select>
+
+    <!--<select id="findUserOneByPhone" resultMap="UserResult">-->
+    <select id="findUserOneByPhone" resultType="com.wuai.company.entity.User">
+        select * from t_user where phone_num=#{phone} and deleted =FALSE limit 1;
+
+    </select>
+
+    <insert id="saveUser" useGeneratedKeys="true" keyProperty="id" parameterType="User">
+        INSERT INTO t_user (`uuid`,`nick_name`,`phone_num`,`load_name`,`load_pass`,`gender`)
+        SELECT   #{uuid},#{nickname},#{phoneNum},#{loadName},#{loadPass},#{gender} FROM dual WHERE NOT EXISTS (SELECT  uuid from  t_user where uuid =#{uuid})
+    </insert>
+
+
+    <update id="updateUserOneById" parameterType="User">
+        UPDATE t_user
+        <trim prefix="set" prefixOverrides=",">
+            update_time=now()
+            <if test="nickname !=null and nickname != '' ">
+                , nick_name=#{nickname}
+            </if>
+            <if test="phoneNum !=null ">
+                , phone_num=#{phoneNum}
+            </if>
+            <if test="loadName !=null and loadName != '' ">
+                , load_name=#{loadName}
+            </if>
+            <if test="loadPass !=null and loadName != '' ">
+                , load_pass=#{loadPass}
+            </if>
+            <if test="gender !=null ">
+                , gender=#{gender}
+            </if>
+            <if test="deleted !=null">
+                , deleted = #{deleted}
+            </if>
+        </trim>
+        WHERE id = #{id}
+
+    </update>
+
+    <select id="findUserByUserId" resultType="com.wuai.company.entity.User" >
+        SELECT * from t_user WHERE id = #{userId} and deleted=FALSE
+    </select>
+
+    <update id="updateMoney">
+        UPDATE t_user
+        <set>
+            <if test="money!=null">money=money+#{money}</if>
+        </set>
+        WHERE id=#{uid}
+    </update>
+    <update id="insertUserBasicData">
+        UPDATE t_user
+        <set>
+            <if test="nickName!=null">nick_name = #{nickName},</if>
+            <if test="gender!=null">gender = #{gender},</if>
+            <if test="age!=null">age = #{age},</if>
+            <if test="occupation!=null">occupation = #{occupation},</if>
+            <if test="height!=null">height = #{height},</if>
+            <if test="weight!=null">weight = #{weight},</if>
+            <if test="city!=null">city = #{city},</if>
+            <if test="zodiac!=null">zodiac = #{zodiac},</if>
+            <if test="label!=null">label = #{label},</if>
+            <if test="signature!=null">signature = #{signature}</if>
+        </set>
+        WHERE id = #{uid} and deleted = FALSE
+    </update>
+    <update id="addPicture">
+        UPDATE t_user
+        <set>
+            <if test="picture!=null">picture = #{picture}</if>
+        </set>
+        WHERE id = #{uid} and deleted = FALSE
+    </update>
+
+    <update id="addIcon">
+        UPDATE t_user
+        <set>
+            <if test="icon!=null">icon = #{icon}</if>
+        </set>
+        WHERE id = #{uid} and deleted = FALSE
+    </update>
+
+    <select id="selectPass" resultType="com.wuai.company.entity.User">
+        SELECT * from t_user WHERE  id= #{uid} AND  load_pass=#{oldPass} and deleted= FALSE
+    </select>
+    <update id="updatePass">
+        UPDATE t_user
+        <set>
+            <if test="newPass!=null and newPass!=''">`load_pass`=#{newPass}</if>
+        </set>
+        WHERE id = #{uid}
+    </update>
+    <insert id="addFeedback">
+        INSERT  INTO
+        t_feedback(uuid,user_id,nick_name,phone_num,feedback)
+        VALUES (#{uid},#{userId},#{nickName},#{phoneNum},#{feedback})
+    </insert>
+    <update id="bindingAliPay">
+        UPDATE t_user
+        <set>
+            <if test="realName!=null">real_name = #{realName},</if>
+            <if test="accountNum!=null">account_num = #{accountNum}</if>
+        </set>
+        where id= #{uid}
+    </update>
+    <select id="findBillDetail" resultType="com.wuai.company.user.entity.Response.BillDetailResponse">
+        			SELECT *  from (
+			select a.uuid as ordersId,a.start_time,a.order_period,a.pay_type ,perhaps,
+							a.place,a.scenes as scene,a.address ,a.money,a.update_time
+							from t_orders a
+							where a.deleted = false  and a.user_id =#{uid}
+			union all
+			SELECT d.uuid as ordersId,d.start_time,d.order_period,d.pay_type ,perhaps,
+							d.place,d.scenes as scene,d.address ,d.money,d.update_time
+							from t_orders d,(select * from t_orders_receive where user_id=#{uid}) f
+			where d.deleted=false and f.deleted= false and d.uuid=f.orders_id ) h
+							ORDER BY h.update_time DESC limit  #{pageNum}, 10
+
+
+</select>
+    <insert id="register">
+        INSERT t_user(`uuid`,`phone_num`,`load_pass`,`load_name`,`user_grade`,`nick_name`)VALUES (#{uuid},#{phoneNum},#{pass},#{loadName},#{userGrade},#{defaultNickName})
+    </insert>
+    <update id="forgetPass">
+        UPDATE t_user
+        <set>
+            <if test="pass!=null">load_pass=#{pass}</if>
+        </set>
+        where phone_num=#{phoneNum}
+    </update>
+    <update id="bindingEquipment">
+        UPDATE t_user
+        <set>
+            <if test="equipment!=null">equipment_id=#{equipment},</if>
+            <if test="sendDeviceType!=null">`type`=#{sendDeviceType}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+    <select id="findDetailByUid" resultType="com.wuai.company.user.entity.Response.DetailResponse">
+        SELECT uuid,orders_id,money,`type`,pay_id from t_details WHERE uuid = #{orderNo} and deleted = FALSE
+    </select>
+        <select id="findDetailByUidAndType" resultType="com.wuai.company.user.entity.Response.DetailResponse">
+        SELECT uuid,orders_id,money,`type`,pay_id from t_details WHERE orders_id = #{payedId} and orders_type = #{key} and deleted = FALSE
+    </select>
+    <update id="pay">
+        UPDATE t_details set state = '1' where uuid = #{orderNo}
+    </update>
+    <select id="personalDetails" resultType="com.wuai.company.entity.User">
+        select a.* from t_user a,t_orders b WHERE b.user_id=a.id and b.uuid = #{uid};
+    </select>
+    <select id="findStoreBillDetail" resultType="com.wuai.company.user.entity.Response.StoreBillDetailResponse">
+        select a.type, c.name,a.money ,a.`uuid`,a.`term_of_validity` as `time`,b.combo
+		  from t_store_orders a ,t_combo b,t_store c
+		  where a.combo_id=b.uuid and c.uuid = a.store_id and user_id = #{uid} ORDER BY a.create_time DESC limit #{pageNum},10
+    </select>
+    <select id="findByUuid" resultType="com.wuai.company.user.entity.Response.OrdersUResponse">
+        SELECT b.phone_num,b.uuid,b.nick_name,b.icon,a.orders_id from t_orders_receive a,t_user b where a.orders_id = #{ordersId} and a.user_id=b.id and a.deleted= FALSE
+    </select>
+    <select id="findOrderByOrderNo" resultType="com.wuai.company.entity.Orders">
+        select * from t_orders where uuid = #{orderNo} and deleted = FALSE and `pay_type`=0;
+    </select>
+    <select id="findOrdersByVersion" resultType="com.wuai.company.entity.Orders">
+        select * from t_orders where version = #{version} and deleted = FALSE
+    </select>
+    <insert id="addRechargeSheet">
+        insert into t_recharge_sheet (user_id,uuid,orders_id,money,`type`,`type_value`,`pay_code`,`pay_value`,`success`)
+        SELECT #{userId}, #{uuid},#{orderNo},#{money},#{detailType},#{detailTypeValue},#{payTypeCode},#{payTypeValue},#{success} from dual
+        WHERE NOT EXISTS (SELECT uuid from t_recharge_sheet where uuid = #{uuid} )
+    </insert>
+    <update id="payOrder">
+        UPDATE t_orders SET
+       `pay_type`=#{payType}
+        WHERE uuid = #{orderNo} and deleted = FALSE ;
+    </update>
+    <select id="findStoreOrders" resultType="com.wuai.company.entity.StoreOrders">
+        select * from t_store_orders where uuid = #{orderNo} and `type`=0 and deleted = false;
+    </select>
+    <update id="payStoreOrders">
+        UPDATE t_store_orders
+        set`type`=#{payType}
+        WHERE uuid = #{orderNo} and deleted = FALSE ;
+    </update>
+    <insert id="addDetails">
+        insert into t_details (`orders_id`,`pay_id`,`payed_id`,`money`, `type`)
+        values (#{orderNo},#{userId},#{merchantId},#{money},#{type});
+    </insert>
+    <select id="findMerchantByUid" resultType="com.wuai.company.entity.MerchantUser">
+        select * from t_merchant_user where id = #{merchantId} and deleted = FALSE ;
+    </select>
+    <select id="findMerchantByName" resultType="com.wuai.company.entity.MerchantUser">
+        select * from t_merchant_user where `username` = #{name} and deleted = FALSE ;
+    </select>
+
+   <update id="bindingManageEquipment">
+       UPDATE t_merchant_user
+       <set>
+           <if test="uid!=null"> equipment = #{uid} ,</if>
+           <if test="sendDeviceType!=null"> `type` = #{sendDeviceType}</if>
+       </set>
+       WHERE uuid = #{uuid}
+   </update>
+
+
+    <insert id="withdrawCash">
+        insert into t_withdraw_cash (`uuid`,`user_id`,`money`,`type`) values (#{uuid},#{id},#{money},#{type});
+    </insert>
+    <update id="subtractMoney">
+        update t_user set money =money-#{money}  where id = #{id} and deleted = false;
+    </update>
+    <select id="findSceneByKey" resultType="com.wuai.company.entity.Response.Scene">
+        SELECT * from t_scene where `key`=#{s}
+    </select>
+    <select id="findSceneByValue" resultType="com.wuai.company.entity.Response.Scene">
+        SELECT * from t_scene where `value`=#{scenes} and deleted = FALSE
+    </select>
+    <insert id="addOrdersDetail">
+        insert into t_details (`uuid`,`orders_id`,`money`,`pay_id`,`type`,`payed_id`,`note`,`orders_type`)
+        SELECT #{detailId},#{uuid},#{countMoney},#{userId},#{type},#{payedId},#{note},#{ordersType} from dual
+        WHERE NOT EXISTS (SELECT uuid from t_details where uuid = #{uuid})
+    </insert>
+    <update id="bindingUserCid">
+        UPDATE t_user set cid = #{cid} where id = #{userId}
+    </update>
+    <select id="findUserByCid" resultType="com.wuai.company.entity.User">
+        SELECT * from t_user where cid = #{cid}
+    </select>
+    <update id="logout">
+        UPDATE t_user set equipment_id = '' where id = #{id}
+    </update>
+    <update id="manageLogout">
+        UPDATE t_merchant_user set equipment = '' where id = #{id}
+    </update>
+    <select id="findUserByRealNameAndIdCard" resultType="com.wuai.company.entity.User">
+        select * from t_user where real_name= #{name} and id_card=#{idCard} and deleted = false
+    </select>
+    <update id="bindingManageCid">
+        UPDATE t_merchant_user SET cid = #{cid} where id = #{id}
+    </update>
+    <select id="findMerchantByCid" resultType="com.wuai.company.entity.MerchantUser">
+        SELECT * FROM t_merchant_user where cid = #{cid}
+    </select>
+    <update id="cancelReceiveOrder">
+        UPDATE t_orders_receive set deleted = true where orders_id = #{uuid}
+    </update>
+    <update id="updateOrdersUpdateMoney">
+        UPDATE t_orders set money=#{money} where uuid = #{uuid}
+    </update>
+    <update id="resetUpdateMoney">
+        UPDATE t_orders set update_money=#{resetUpdateMoney} where uuid = #{uuid}
+    </update>
+    <select id="findStartTimeLimitOne" resultType="com.wuai.company.entity.Orders">
+        SELECT * from t_orders where pay_type in (1,5,6) and scenes = #{scenes} and user_id = #{userId} and sel_time_type = #{code} order by start_time_stamp Asc limit 1;
+    </select>
+    <update id="onOff">
+        UPDATE t_user
+        <set>
+            <if test="onOff!=null">on_off = #{onOff}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+    <insert id="activeEnter">
+        INSERT into t_user(`nick_name`,`gender`,`age`,`height`,`weight`,`labels`,`uuid`)
+          SELECT   #{nickName},#{gender},#{age},#{height},#{weight},#{labels},#{uuid}
+          FROM dual WHERE NOT EXISTS (SELECT  uuid from  t_user where uuid =#{uuid})
+    </insert>
+    <update id="bindingAttestation">
+        UPDATE t_user
+        <set>
+            <if test="name!=null">real_name=#{name},</if>
+            <if test="accountName!=null">account_num=#{accountName},</if>
+            <if test="idCard!=null">id_card=#{idCard}</if>
+        </set>
+        WHERE id=#{id}
+    </update>
+    <insert id="uploadWorkProof">
+        INSERT INTO t_work_proof(`uuid`,`proof`,`user_id`,`company`,`job`)VALUES (#{uploadWorkProofRequest.uuid},#{uploadWorkProofRequest.proof},
+        #{uploadWorkProofRequest.userId},#{uploadWorkProofRequest.company},#{uploadWorkProofRequest.job})
+    </insert>
+    <select id="versionManage" resultType="java.lang.String">
+        SELECT value FROM t_sys WHERE `key`='ios_version'
+    </select>
+    <select id="findAdminByName" resultType="com.wuai.company.entity.AdminUser">
+        SELECT * from t_admin where username= #{name}
+    </select>
+    <insert id="registerPms">
+        INSERT  into t_admin(`uuid`,`username`,`password`,`grade`)VALUES (#{uuid},#{username},#{password},#{grade})
+    </insert>
+
+    <insert id="addOperationNote">
+        insert into t_operation_note (`uuid`,`admin_id`,`manipulated_uid`,`type`,`note`)
+        SELECT #{operationId},#{id},#{uuid},#{code},#{value} from dual
+        WHERE not EXISTS (select uuid from t_operation_note where uuid = #{operationId})
+    </insert>
+    <update id="pmsUpdatePass">
+        UPDATE t_admin
+        <set>
+            <if test="password!=null">
+                password=#{password}
+            </if>
+        </set>
+        WHERE username=#{name}
+    </update>
+    <select id="findBoundMemberUser" resultType="com.wuai.company.entity.Response.BoundMemberResponse">
+        SELECT * from t_bound_member where phone_num=#{phoneNum} and deleted = FALSE
+    </select>
+    <insert id="addBoundMember">
+        insert into t_bound_member(`uuid`,`phone_num`,`user_id`)
+        SELECT #{uuid},#{phoneNum},#{userId} FROM dual
+        WHERE not EXISTS (SELECT uuid from t_bound_member WHERE uuid=#{uuid} and deleted=FALSE )
+    </insert>
+    <update id="upBoundMember">
+        update t_bound_member
+        <set>
+            <if test="userId!=null"> user_id=#{userId} </if>
+        </set>
+        WHERE uuid=#{uuid}
+    </update>
+    <insert id="registerInputPass">
+        INSERT t_user(`uuid`,`phone_num`,`load_pass`,`load_name`,`user_grade`,`nick_name`,`superior_user`)
+        VALUES (#{uuid},#{phoneNum},#{pass},#{loadName},#{userGrade},#{defaultNickName},#{userId})
+    </insert>
+    <select id="findUsersForBackMoney" resultType="com.wuai.company.entity.User">
+        SELECT * from t_user WHERE stop_back_money!=#{code} and consume_money &gt; #{stopMoney} and deleted = FALSE
+    </select>
+    <update id="updateConsumeMoney" >
+        UPDATE t_user
+        <set>
+            <if test="consumeMoney!=null">consume_money=#{consumeMoney}</if>
+        </set>
+        where id = #{id}
+    </update>
+    <update id="updatePayPass">
+        UPDATE t_user
+        <set>
+            <if test="md5Pass!=null">
+                pay_pass=#{md5Pass}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <update id="taskPayed">
+        UPDATE  t_task_pay set deleted = false where uuid = #{payedId}
+    </update>
+    <insert id="addOrdersDetailForConsumeMoney">
+        insert into t_details (`uuid`,`orders_id`,`money`,`pay_id`,`type`,`payed_id`,`note`,`orders_type`,`deleted`)
+        SELECT #{detailId},#{uuid},#{countMoney},#{userId},#{type},#{payedId},#{note},#{ordersType},TRUE from dual
+        WHERE NOT EXISTS (SELECT uuid from t_details where uuid = #{uuid})
+    </insert>
+    <select id="findUserByUuid" resultType="com.wuai.company.entity.User">
+        SELECT * from t_user where uuid = #{uuid} and deleted = FALSE
+    </select>
+    <update id="balanceRecharge">
+        UPDATE t_user
+        <set>
+            <if test="money!=null">
+                consume_money=consume_money+#{money}
+            </if>
+        </set>
+        WHERE id=#{id}
+    </update>
+    <select id="getSysParameter" resultType="java.lang.String">
+        SELECT `value` from t_sys where `key` = #{key} ;
+    </select>
+    <update id="updateComboEndTime">
+        UPDATE  t_store_orders set term_of_validity = #{date} where uuid = #{orderNo}
+    </update>
+    <update id="insertVideo">
+        UPDATE t_user set video = #{video} where id = #{id}
+    </update>
+    <select id="findTaskPay" resultType="com.wuai.company.entity.Response.StoreTaskPayResponse">
+        SELECT * from t_task_pay where uuid = #{payedId}
+    </select>
+    <select id="findPartyByUid" resultType="com.wuai.company.entity.Response.PartyOrdersResponse">
+        SELECT * from t_party_orders where uuid = #{orderNo}
+    </select>
+    <update id="upPartyPay">
+        UPDATE t_party_orders set pay_code = #{code} where uuid = #{partyId}
+    </update>
+    <select id="findPartyBillDetail" resultType="com.wuai.company.entity.Response.PartyDetailedResponse">
+        SELECT * from t_party_orders where user_id = #{id} and deleted = false order by update_time DESC limit #{pageNum},10
+    </select>
+    <update id="upUserGrade">
+        UPDATE t_user set user_grade = #{grade} where id = #{uid}
+    </update>
+    <select id="findVideoCheck" resultType="com.wuai.company.entity.Response.UserVideoResponse">
+        SELECT * from t_user_video where deleted=false and video_type=#{videoType} and user_id=#{id}
+    </select>
+    <select id="selectUserVideoByCheckAndUserId" resultType="com.wuai.company.entity.Response.UserVideoResponse">
+        SELECT * from t_user_video where deleted=false and video_check=#{videoCheck} and user_id=#{userId}
+    </select>
+   <insert id="videoAdd">
+       insert into t_user_video (`uuid`,`user_id`,`video`,`video_pic`,`video_type`)
+       SELECT #{uuid},#{id},#{video},#{videoPic},#{videoType} from dual where not EXISTS (SELECT uuid from t_user_video where uuid = #{uuid})
+   </insert>
+    <select id="findVideoByUuid" resultType="com.wuai.company.entity.Response.UserVideoResponse">
+        SELECT * from  t_user_video where deleted = false and uuid = #{uuid}
+    </select>
+    <update id="videoUp">
+        UPDATE t_user_video
+        <set>
+            <if test="video!=null and video !=''">video=#{video},</if>
+            <if test="videoPic!=null and videoPic !=''">video_pic=#{videoPic}</if>
+        </set>
+        where uuid = #{uuid} and user_id = #{id}
+    </update>
+    <update id="videoDel">
+        update t_user_video set deleted=true where uuid = #{uuid}
+    </update>
+    <select id="findVideos" resultType="com.wuai.company.entity.Response.UserVideoResponse">
+        select * from t_user_video WHERE user_id = #{userId} and deleted=false
+    </select>
+    <insert id="addRechargeOrders">
+        insert t_recharge_orders (`uuid`,`user_id`,`money`,`grade`)
+        select #{uuid},#{uid},#{money},#{grade} from dual WHERE NOT EXISTS (SELECT uuid from t_recharge_orders where uuid = #{uuid});
+    </insert>
+    <select id="findRechargeOrders" resultType="com.wuai.company.entity.Response.RechargeOrdersResponse">
+        SELECT * from t_recharge_orders where uuid = #{orderNo} and deleted=FALSE
+    </select>
+    <select id="findCoupons" resultType="com.wuai.company.entity.Coupons">
+        SELECT * from t_coupons where coupons_code = #{code} and deleted = FALSE
+    </select>
+    <select id="findCouponsOrdersByCode" resultType="com.wuai.company.entity.CouponsOrders">
+        SELECT * from t_coupons_orders a ,t_coupons b where b.coupons_code = #{code} and a.user_id=#{userId} and a.deleted=FALSE order by `status` asc ,a.update_time DESC
+    </select>
+    <insert id="addCouponsOrders">
+        insert into t_coupons_orders(`uuid`,`coupons_uuid`,`user_id`)
+        SELECT #{uuid}, #{couponsId},#{userId} FROM dual WHERE NOT EXISTS
+        (SELECT uuid FROM t_coupons_orders where uuid = #{uuid})
+    </insert>
+    <update id="updateGoldMoney">
+        UPDATE t_user set gold_money = gold_money+#{totalFee} where id = #{id}
+    </update>
+    <select id="findCouponsOrdersById" resultType="com.wuai.company.entity.Response.CouponsOrdersResponse">
+        SELECT * from t_coupons_orders a  ,t_coupons b where a.user_id=#{id} and a.coupons_uuid=b.uuid and a.deleted=FALSE order by `status` asc ,a.update_time DESC
+    </select>
+    <select id="findTrystOrdersByUid" resultType="com.wuai.company.entity.TrystOrders">
+        SELECT * from t_tryst_orders where uuid = #{trystId} and deleted = FALSE
+    </select>
+    <update id="upTrystOrdersPay">
+        UPDATE t_tryst_orders
+        set pay_code = #{code}, pay_value = #{value}
+        WHERE uuid = #{trystId}
+    </update>
+    <select id="selectScenePicByScene" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT pic FROM t_tryst_scene WHERE NAME = #{sceneName}
+    </select>
+    <select id="selectSceneContentByScene" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT content FROM t_tryst_scene WHERE NAME = #{sceneName}
+    </select>
+    <select id="selectReceiveByTrystId" parameterType="java.lang.String" resultMap="TrystReceiveResult">
+        SELECT
+        <include refid="Receive_Base_List"/>
+        FROM t_tryst_receive
+        WHERE tryst_id = #{trystId}
+    </select>
+    <delete id="delectReceiveByUserId">
+        DELETE FROM t_tryst_receive
+        WHERE user_id = #{userId}
+        AND tryst_id = #{trystId}
+    </delete>
+    <update id="logicDelectReceiveByUserId">
+        UPDATE t_tryst_receive
+        SET deleted = TRUE
+        WHERE user_id = #{userId}
+        AND tryst_id = #{trystId}
+    </update>
+    <update id="reduceTrystPersonCount" parameterType="java.lang.String">
+        UPDATE t_tryst_orders
+        SET person_count = person_count - 1
+        WHERE uuid = #{trystId}
+    </update>
+    <update id="updateCidByUserId">
+        UPDATE t_user
+        SET cid = #{cid}
+        WHERE id = #{userId}
+    </update>
+    <select id="selectUsersFromReceiveByTrystId" resultMap="BaseResultMap">
+        SELECT
+        <include refid="User_Base_List"/>
+        FROM t_user WHERE id IN (SELECT user_id FROM t_tryst_receive WHERE tryst_id = #{trystId} AND deleted = FALSE )
+    </select>
+    <select id="findUserIdByUuId" resultType="java.lang.Integer" >
+        select id from t_user where uuid=#{uuid}
+    </select>
+    
+    <insert id="insertIdentityProof">
+        insert t_identity_proof (`uuid`,`user_id`,`proof`,`state`)
+        select #{uuid},#{userId},#{proof},#{state} from dual WHERE NOT EXISTS (SELECT uuid from t_identity_proof where uuid = #{uuid} AND deleted = FALSE);
+    </insert>
+    <select id="selectIdentityProof" resultMap="IdentityProofResult" parameterType="com.wuai.company.entity.request.IdentityProof">
+        SELECT
+        <include refid="IdentityProof_Column_List"/>
+        FROM t_identity_proof
+        <where>
+        <if test="id != null" >
+        id = #{id,jdbcType=INTEGER}
+        </if>
+        <if test="uuid != null" >
+        and uuid = #{uuid,jdbcType=VARCHAR}
+        </if>
+        <if test="state != null" >
+        and state = #{state,jdbcType=INTEGER}
+        </if>
+        <if test="deleted != null" >
+        and deleted = #{deleted,jdbcType=BIT}
+        </if>
+        <if test="userId != null" >
+        and user_id = #{userId,jdbcType=INTEGER}
+        </if>
+        </where>
+        ORDER BY create_time
+    </select>
+    <select id="selectMyIdentityProof" resultMap="IdentityProofResult" parameterType="com.wuai.company.entity.request.IdentityProof">
+        SELECT
+        <include refid="IdentityProof_Column_List"/>
+        FROM t_identity_proof
+        <where>
+        <if test="state != null" >
+         state = #{state,jdbcType=INTEGER}
+        </if>
+        <if test="deleted != null" >
+        and deleted = #{deleted,jdbcType=BIT}
+        </if>
+        <if test="userId != null" >
+        and user_id = #{userId,jdbcType=INTEGER}
+        </if>
+        </where>
+        ORDER BY create_time desc
+    </select>
+    <insert id="registerVersionTwo">
+        INSERT t_user(`uuid`,`phone_num`,`load_pass`,`nick_name`,`gender`,`birthday`,`age`)VALUES (#{uuid},#{phoneNum},#{pass},#{nickname},#{gender},#{birthday},#{age})
+    </insert>
+    <select id="selectPhoneByUserId" parameterType="java.lang.Integer" resultType="java.lang.String">
+        SELECT phone_num FROM `t_user` WHERE id=#{userId} AND deleted = FALSE
+    </select>
+    <insert id="insertEaseMob">
+        insert t_tryst_easemob (`uuid`,`tryst_id`,`group_id`)
+        select #{uuid},#{trystId},#{groupId} from dual WHERE NOT EXISTS (SELECT uuid from t_tryst_easemob where uuid = #{uuid} AND deleted = FALSE);
+    </insert>
+    <select id="selectGroupIdByTrystId" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT group_id FROM t_tryst_easemob WHERE tryst_id = #{trystId} AND deleted = FALSE
+    </select>
+    <update id="deleteEaseMob">
+        UPDATE t_tryst_easemob
+        SET deleted = TRUE
+        WHERE tryst_id = #{trystId}
+    </update>
+    <update id="deductMoney">
+        UPDATE t_user
+        SET money = money - #{payMoney}
+        WHERE id = #{userId}
+    </update>
+    <insert id="insertTrystReceive">
+        insert into t_tryst_receive(`uuid`,`tryst_id`,`user_id`,`money`)
+        SELECT #{uuid},#{trystId},#{userId},#{money} from dual where not exists (select uuid from t_tryst_receive where uuid = #{uuid} )
+    </insert>
+    <update id="exitTrystReceive">
+        UPDATE t_tryst_receive
+        SET deleted = #{deleted}
+        WHERE tryst_id = #{trystId}
+    </update>
+</mapper>

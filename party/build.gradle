@@ -1,0 +1,22 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+
+jar {
+
+    baseName "party"
+}
+
+dependencies {
+    compile fileTree(dir: 'lib', include: ['*.jar'])
+    compile 'commons-codec:commons-codec:1.10'
+    compile 'commons-logging:commons-logging:1.2'
+    compile 'commons-httpclient:commons-httpclient:3.1'
+    compile project(':commons')
+    compile project(':user')
+
+}

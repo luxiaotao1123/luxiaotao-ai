@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuai.company.order.mapper.TrystEvaluationMapper">
+ <resultMap id="BaseResultMap" type="com.wuai.company.order.entity.TrystEvaluation">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="uuid" jdbcType="INTEGER" property="uuid" />
+    <result column="own_user_id" jdbcType="INTEGER" property="ownUserId" />
+    <result column="target_user_id" jdbcType="INTEGER" property="targetUserId" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="service_attitude" jdbcType="VARCHAR" property="serviceAttitude" />
+    <result column="service_label" jdbcType="VARCHAR" property="serviceLabel" />
+    <result column="similarity" jdbcType="VARCHAR" property="similarity" />
+    <result column="similarity_label" jdbcType="VARCHAR" property="similarityLabel" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+    <result column="tryst_id" jdbcType="VARCHAR" property="trystId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, uuid, own_user_id, target_user_id, type, service_attitude, service_label, similarity, 
+    similarity_label, create_time, update_time, deleted, tryst_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_tryst_evaluation
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_tryst_evaluation
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wuai.company.order.entity.TrystEvaluation">
+    insert into t_tryst_evaluation (id, uuid, own_user_id, 
+      target_user_id, type, service_attitude, 
+      service_label, similarity, similarity_label, 
+      create_time, update_time, deleted, 
+      tryst_id)
+    values (#{id,jdbcType=INTEGER}, #{uuid,jdbcType=VARCHAR}, #{ownUserId,jdbcType=VARCHAR}, 
+      #{targetUserId,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{serviceAttitude,jdbcType=VARCHAR}, 
+      #{serviceLabel,jdbcType=VARCHAR}, #{similarity,jdbcType=VARCHAR}, #{similarityLabel,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}, 
+      #{trystId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wuai.company.order.entity.TrystEvaluation">
+    insert into t_tryst_evaluation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="ownUserId != null">
+        own_user_id,
+      </if>
+      <if test="targetUserId != null">
+        target_user_id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="serviceAttitude != null">
+        service_attitude,
+      </if>
+      <if test="serviceLabel != null">
+        service_label,
+      </if>
+      <if test="similarity != null">
+        similarity,
+      </if>
+      <if test="similarityLabel != null">
+        similarity_label,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
+      <if test="trystId != null">
+        tryst_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="ownUserId != null">
+        #{ownUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUserId != null">
+        #{targetUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="serviceAttitude != null">
+        #{serviceAttitude,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceLabel != null">
+        #{serviceLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="similarity != null">
+        #{similarity,jdbcType=VARCHAR},
+      </if>
+      <if test="similarityLabel != null">
+        #{similarityLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="trystId != null">
+        #{trystId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wuai.company.order.entity.TrystEvaluation">
+    update t_tryst_evaluation
+    <set>
+      <if test="uuid != null">
+        uuid = #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="ownUserId != null">
+        own_user_id = #{ownUserId,jdbcType=INTEGER},
+      </if>
+      <if test="targetUserId != null">
+        target_user_id = #{targetUserId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="serviceAttitude != null">
+        service_attitude = #{serviceAttitude,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceLabel != null">
+        service_label = #{serviceLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="similarity != null">
+        similarity = #{similarity,jdbcType=VARCHAR},
+      </if>
+      <if test="similarityLabel != null">
+        similarity_label = #{similarityLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="trystId != null">
+        tryst_id = #{trystId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wuai.company.order.entity.TrystEvaluation">
+    update t_tryst_evaluation
+    set uuid = #{uuid,jdbcType=VARCHAR},
+      own_user_id = #{ownUserId,jdbcType=INTEGER},
+      target_user_id = #{targetUserId,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER},
+      service_attitude = #{serviceAttitude,jdbcType=VARCHAR},
+      service_label = #{serviceLabel,jdbcType=VARCHAR},
+      similarity = #{similarity,jdbcType=VARCHAR},
+      similarity_label = #{similarityLabel,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=BIT},
+      tryst_id = #{trystId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeySelectiveByUuid" parameterType="com.wuai.company.order.entity.TrystEvaluation">
+    update t_tryst_evaluation
+    <set>
+      <if test="ownUserId != null">
+        own_user_id = #{ownUserId,jdbcType=INTEGER},
+      </if>
+      <if test="targetUserId != null">
+        target_user_id = #{targetUserId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="serviceAttitude != null">
+        service_attitude = #{serviceAttitude,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceLabel != null">
+        service_label = #{serviceLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="similarity != null">
+        similarity = #{similarity,jdbcType=VARCHAR},
+      </if>
+      <if test="similarityLabel != null">
+        similarity_label = #{similarityLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="trystId != null">
+        tryst_id = #{trystId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+
+  <!--通过订单 id 和 被评价者 id 找到评价-->
+   <select id="selectEvaluationByTrystId" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_tryst_evaluation
+    where tryst_id = #{trystId}
+     AND  target_user_id = #{targetUserId}
+     and deleted = FALSE
+  </select>
+  <!--通过订单 id 和 评价者 id 找到评价-->
+  <select id="selectEvaluationByTrystIdAndOwn" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_tryst_evaluation
+    where tryst_id = #{trystId}
+    AND  own_user_id = #{ownUserId}
+    and deleted = FALSE
+  </select>
+  <!--通过订单id 和 评价者id  被评价者id 找到评价-->
+  <select id="selectEvaluationByTrystIdAndOwnAndTarget" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_tryst_evaluation
+    where tryst_id = #{trystId}
+    AND  own_user_id = #{ownUserId}
+    AND target_user_id = #{targetUserId}
+    and deleted = FALSE
+  </select>
+
+     <select id="selectByUuid" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_tryst_evaluation
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
+</mapper>

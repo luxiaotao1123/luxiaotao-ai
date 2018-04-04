@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuai.company.store.manage.mapper.StoreManageMapper">
+
+
+
+
+    <!--<cache flushInterval="40000" eviction="FIFO"/>-->
+
+    <select id="" resultType="com.wuai.company.entity.MerchantUser">
+
+    </select>
+    <update id="bindingAlipay">
+        update t_merchant_user
+        <set>
+            <if test="realName!=null">
+                real_name=#{realName},
+            </if>
+            <if test="accountNum!=null">
+                account_num = #{accountNum}
+            </if>
+        </set>
+        where id = #{manageId} ;
+    </update>
+
+    <select id="findAllDetails" resultType="com.wuai.company.store.manage.entity.response.StoreDetailsResponse">
+       SELECT b.combo as comboName,a.uuid as storeNo,b.price as money,a.create_time as `time`,c.nick_name,a.type as payType
+       from t_combo b,(select * from t_store_orders) a,t_user c
+       WHERE a.merchant_id = #{id} and a.combo_id = b.uuid and a.user_id=c.id order by a.`type` ASC limit #{pageNum},10 ;
+    </select>
+    <update id="sureOrder">
+        update t_store_orders
+        <set>
+            <if test="payCode!=null">`type`= #{payCode}</if>
+        </set>
+        WHERE uuid = #{orderId} and deleted = FALSE
+    </update>
+    <update id="cancelOrder">
+        update t_store_orders
+        <set>
+            <if test="payCode!=null">`type`= #{payCode}</if>
+        </set>
+        WHERE uuid = #{orderId} and deleted = FALSE
+    </update>
+    <select id="findOrdersByOrderId" resultType="com.wuai.company.entity.StoreOrders">
+        select * from t_store_orders WHERE uuid = #{orderId};
+    </select>
+    <update id="backMoney">
+        update t_user set money  = money+#{money}  where id = #{userId};
+    </update>
+    <select id="findMerchantUserById" resultType="com.wuai.company.entity.MerchantUser">
+        SELECT * from t_merchant_user where id = #{id} and deleted = FALSE
+    </select>
+    <insert id="withdrawCash">
+        insert into t_withdraw_cash (`uuid`,`user_id`,`money`,`type`) values (#{uuid},#{id},#{money},#{type});
+    </insert>
+    <select id="findWaitingDetails" resultType="com.wuai.company.store.manage.entity.response.StoreDetailsResponse">
+        SELECT b.combo as comboName,a.uuid as storeNo,b.price as money,a.create_time as `time`,c.nick_name,a.type as payType
+        from t_combo b,(select * from t_store_orders where type = 1) a,t_user c
+        WHERE a.merchant_id = #{id} and a.combo_id = b.uuid and a.user_id=c.id order by a.`type` ASC limit #{pageNum},10 ;
+    </select>
+    <update id="subtractMoney">
+        update t_merchant_user set money =money-#{money}  where id = #{id} and deleted = false;
+    </update>
+    <select id="findManage" resultType="com.wuai.company.entity.MerchantUser">
+        select * from t_merchant_user where id = #{id}
+    </select>
+    <update id="bindingCid">
+        UPDATE t_merchant_user set cid = #{cid} Where id = #{id}
+    </update>
+    <update id="updateMoney">
+        update t_merchant_user set `money` = money+#{money}   where id = #{id}  ;
+    </update>
+    <select id="findDetailByOrderId" resultType="com.wuai.company.store.manage.entity.response.StoreDetailsResponse">
+        SELECT b.combo as comboName,a.uuid as storeNo,b.price as money,a.create_time as `time`,c.nick_name,a.type as payType
+       from t_combo b,(select * from t_store_orders) a,t_user c
+       WHERE a.uuid = #{orderId} and a.combo_id = b.uuid and a.user_id=c.id
+    </select>
+    <update id="surePartyOrders">
+        UPDATE t_party_orders set pay_code = #{code} WHERE uuid = #{uuid}
+    </update>
+    <select id="partyDetailed" resultType="com.wuai.company.entity.Response.PartyDetailedResponse">
+        SELECT a.*,b.nick_name from t_party_orders a ,t_user b where a.uuid = #{uuid} and a.deleted = FALSE and a.user_id = b.id
+    </select>
+</mapper>

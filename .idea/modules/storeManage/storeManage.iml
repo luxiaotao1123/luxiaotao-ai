@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":storeManage" external.linked.project.path="$MODULE_DIR$/../../../storeManage" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="com.wuai" external.system.module.version="1.1.1" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../storeManage">
+      <excludeFolder url="file://$MODULE_DIR$/../../../storeManage/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../storeManage/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../storeManage/out" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

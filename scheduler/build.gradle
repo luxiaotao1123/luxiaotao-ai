@@ -1,0 +1,18 @@
+apply plugin: 'java'
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+
+
+jar {
+
+    baseName "scheduler"
+}
+
+dependencies {
+    compile "org.quartz-scheduler:quartz:2.2.3"
+    compile project(':commons')
+}
+

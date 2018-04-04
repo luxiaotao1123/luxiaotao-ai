@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuai.company.order.mapper.OrdersReceiveMapper">
+
+    <resultMap id="OrdersReceiveResult" type="OrdersReceive">
+        <result column="user_id" property="userId" jdbcType="INTEGER" javaType="Integer"/>
+        <result column="uuid" property="uuid" jdbcType="VARCHAR" javaType="String"/>
+        <result column="orders_id" property="ordersId" jdbcType="VARCHAR" javaType="String"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+        <result column="deleted" property="deleted" jdbcType="TINYINT" javaType="Integer"/>
+    </resultMap>
+
+    <!--<cache flushInterval="40000" eviction="FIFO"/>-->
+
+    <insert id="addInvitationReceive">
+        INSERT INTO t_orders_receive(`user_id`,`uuid`,`orders_id`) VALUES (#{userId},#{uuid},#{ordersId});
+    </insert>
+    <select id="findInvitationReceive" resultMap="OrdersReceiveResult">
+        SELECT * from t_orders_receive WHERE   orders_id = #{uid} and user_id=#{userId} AND deleted = FALSE limit 1
+    </select>
+    <select id="findOrdersReceive" resultMap="OrdersReceiveResult">
+        SELECT * from t_orders_receive WHERE orders_id = #{uid} and deleted = FALSE
+    </select>
+    <update id="deletedReceive">
+        UPDATE t_orders_receive
+        <set>
+            deleted=TRUE
+        </set>
+        WHERE uuid = #{uuid}
+    </update>
+    <select id="findOrdersReceiveByUserId"  resultMap="OrdersReceiveResult">
+        SELECT a.* FROM t_orders_receive a,t_orders b where a.user_id = #{userId} and b.pay_type not IN (0,1,2,3 ) and b.uuid = a.orders_id and b.scenes= #{scenes} and a.deleted= FALSE
+    </select>
+</mapper>

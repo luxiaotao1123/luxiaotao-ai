@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuai.company.order.mapper.OrdersMapper">
+
+    <resultMap id="OrdersResult" type="Orders">
+        <result column="user_id" property="userId" jdbcType="INTEGER" javaType="Integer"/>
+        <result column="pay_type" property="payType" jdbcType="INTEGER" javaType="Integer"/>
+        <result column="pay" property="pay" jdbcType="INTEGER" javaType="Integer"/>
+        <result column="uuid" property="uuid" jdbcType="VARCHAR" javaType="String"/>
+        <result column="user_invitation" property="userInvitation" jdbcType="VARCHAR" javaType="String"/>
+        <result column="start_time" property="startTime" jdbcType="VARCHAR" javaType="String"/>
+        <result column="sel_time_type" property="selTimeType" jdbcType="TINYINT" javaType="Integer"/>
+        <result column="order_period" property="orderPeriod" jdbcType="INTEGER" javaType="Integer"/>
+        <result column="order_type" property="orderType" jdbcType="TINYINT" javaType="Integer"/>
+        <result column="person_count" property="personCount" jdbcType="INTEGER" javaType="Integer"/>
+        <result column="grateful_free" property="gratefulFree" jdbcType="DOUBLE" javaType="Double"/>
+        <result column="latitude" property="latitude" jdbcType="DOUBLE" javaType="Double"/>
+        <result column="longitude" property="longitude" jdbcType="DOUBLE" javaType="Double"/>
+        <result column="label" property="label" jdbcType="VARCHAR" javaType="String"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+        <result column="deleted" property="deleted" jdbcType="TINYINT" javaType="Integer"/>
+        <result column="perhaps" property="perhaps" jdbcType="TINYINT" javaType="Integer"/>
+        <result column="scenes" property="scenes" jdbcType="VARCHAR" javaType="String"/>
+        <result column="place" property="place" jdbcType="VARCHAR" javaType="String"/>
+    </resultMap>
+
+    <!--<cache flushInterval="40000" eviction="FIFO"/>-->
+
+    <select id="findOrdersOneByUuid" resultType="com.wuai.company.entity.Orders">
+		select * from t_orders where uuid=#{uuid} and deleted =FALSE limit 1;
+	</select>
+
+    <select id="findOrdersByUserId"  resultType="com.wuai.company.entity.Orders">
+        select uuid,create_time from t_orders where id=#{userId}
+        <if test="order_type !=null">
+            AND order_type = orderType
+        </if>
+        and deleted =FALSE limit #{start},#{pageCount}
+    </select>
+    <select id="findMYOrdersByUserId" resultType="com.wuai.company.entity.Orders">
+        SELECT * from t_orders WHERE user_id= #{id} and deleted=false and pay_type in (1,5)
+    </select>
+    <select id="findOrderByUserId" resultType="com.wuai.company.entity.Orders">
+        select * from t_orders where user_id = #{id} and perhaps = '1' and deleted = false order by update_time desc limit #{pageNum},10 ;
+    </select>
+
+    <insert id="addInvitation" >
+        INSERT INTO t_orders (`money`,`user_id`,`uuid`,`start_time`,`sel_time_type`,`order_type`,`order_period`,
+        `person_count`,`grateful_free`,`label`,`perhaps`,`scenes`,`place`,`user_invitation`,`longitude`,`latitude`,`pay_type`,`version`,`start_time_stamp`,`address`)
+        SELECT   #{money},#{userId},#{uuid},#{startTime},#{selTimeType},0,
+        #{orderPeriod},#{personCount},#{gratefulFree},#{label},#{perhaps},#{scenes} ,#{place},
+         #{userInvitation},#{longitude},#{latitude},#{payType},#{version},#{startTimeStamp},#{address} FROM dual WHERE NOT EXISTS (SELECT  uuid from  t_orders where uuid =#{uuid})
+    </insert>
+
+
+    <update id="updateInvitation" >
+        UPDATE t_orders
+        <set>
+            <if test="money!=null">money=#{money},</if>
+            <if test="userId!=null">user_id=#{userId},</if>
+            <if test="startTime!=null">start_time=#{startTime},</if>
+            <if test="selTimeType!=null">sel_time_type=#{selTimeType},</if>
+            order_type=0,
+            <if test="orderPeriod!=null">order_period=#{orderPeriod},</if>
+            <if test="personCount!=null">person_count=#{personCount},</if>
+            <if test="gratefulFree!=null">grateful_free=#{gratefulFree},</if>
+            <if test="label!=null">label=#{label},</if>
+            <if test="perhaps!=null">perhaps=#{perhaps},</if>
+            <if test="scenes!=null">scenes=#{scenes},</if>
+            <if test="longitude!=null">longitude=#{longitude},</if>
+            <if test="latitude!=null">latitude=#{latitude},</if>
+            <if test="payType!=null">pay_type=#{payType},</if>
+            <if test="version!=null">version=#{version},</if>
+            <if test="place!=null">place=#{place},</if>
+            <if test="address!=null">address=#{address},</if>
+            <if test="cycLong!=null">start_time_stamp=#{cycLong}</if>
+        </set>
+        WHERE uuid = #{uuid}
+
+    </update>
+
+    <update id="updateDifferenceMoney" >
+        UPDATE t_orders
+        <set>
+            <if test="money!=null">update_money=#{money},</if>
+            <if test="userId!=null">user_id=#{userId},</if>
+            <if test="startTime!=null">start_time=#{startTime},</if>
+            <if test="selTimeType!=null">sel_time_type=#{selTimeType},</if>
+            order_type=0,
+            <if test="orderPeriod!=null">order_period=#{orderPeriod},</if>
+            <if test="personCount!=null">person_count=#{personCount},</if>
+            <if test="gratefulFree!=null">grateful_free=#{gratefulFree},</if>
+            <if test="label!=null">label=#{label},</if>
+            <if test="perhaps!=null">perhaps=#{perhaps},</if>
+            <if test="scenes!=null">scenes=#{scenes},</if>
+            <if test="longitude!=null">longitude=#{longitude},</if>
+            <if test="latitude!=null">latitude=#{latitude},</if>
+            <if test="payType!=null">pay_type=#{payType},</if>
+            <if test="version!=null">version=#{version},</if>
+            <if test="place!=null">place=#{place},</if>
+            <if test="address!=null">address=#{address},</if>
+            <if test="startLong!=null">start_time_stamp=#{startLong}</if>
+        </set>
+        WHERE uuid = #{uuid}
+
+    </update>
+    <!--查询订单-->
+    <select id="findOtherOrders"  resultType="com.wuai.company.order.entity.response.OrdersResponse">
+        SELECT a.longitude,a.latitude,a.*,b.nick_name,b.gender,b.icon,d.hourly_fee,b.picture,b.occupation,b.age
+        from t_orders a,t_user b,t_scene d
+        where
+        start_time>NOW() AND
+        a.scenes=#{scenes} and sel_time_type=0 and
+        a.perhaps=#{perhaps} AND
+        <if test="perhaps==1">pay_type in (1,5) and </if>
+        <if test="perhaps==2">pay_type=0 and </if>
+        a.user_id = b.id and a.user_id!=#{uid}
+        and a.deleted=FALSE AND order_type='0'
+        and d.value=#{scenes}
+        ORDER BY start_time ASC limit #{pageNum},10
+    </select>
+    <select id="findOrdersByOrdersId"  resultType="com.wuai.company.order.entity.response.OrdersResponse">
+        SELECT a.address,a.*,b.nick_name,b.gender,b.icon,d.hourly_fee,b.picture
+        from t_orders a,t_user b,t_scene d
+        where  a.uuid = #{ordersId} AND
+        a.user_id = b.id  and a.deleted=FALSE AND  d.value=a.scenes
+    </select>
+    <!--查询所有个人订单-->
+    <select id="findMyOrder" resultType="com.wuai.company.order.entity.response.OrdersResponse">
+        SELECT a.longitude,a.latitude,a.*,b.nick_name,b.gender,b.icon,d.hourly_fee,b.picture
+        from t_orders a,t_user b,t_scene d
+        where sel_time_type = #{selTimeType} and
+        a.scenes=#{scenes} and
+        <if test="perhaps==1">pay_type=1 and </if>
+        <if test="perhaps==2">pay_type=0 and </if>
+        a.perhaps=#{perhaps} AND a.user_id = b.id
+        and a.user_id=#{uid} and a.deleted=FALSE AND order_type='0' and d.value=#{scenes}
+        ORDER BY start_time_stamp DESC
+    </select>
+    <select id="findMyPeriodOrder" resultType="com.wuai.company.entity.Orders">
+      SELECT a.longitude,a.latitude,a.*,b.nick_name,b.gender,b.icon,d.hourly_fee,b.picture
+      from t_orders a,t_user b,t_scene d
+      where a.scenes=#{value} and a.sel_time_type = #{selTimeType}
+      AND a.perhaps=#{perhaps}
+      AND a.user_id = b.id and a.user_id=#{uid}
+      and a.deleted=FALSE and d.value=#{value} and a.pay_type in (0,1)
+    </select>
+    <update id="updateOrdersByUid">
+        UPDATE t_orders
+        <set>
+            pay_type=#{orderType}
+        </set>
+        WHERE uuid=#{uid}
+    </update>
+    <update id="invitationDeleted">
+        UPDATE t_orders
+        <set>
+            pay_type=#{type}
+        </set>
+        WHERE uuid=#{uid}
+    </update>
+    <!--
+    SELECT * FROM t_orders where user_id = #{userId} and deleted=FALSE AND order_type='0' AND sel_time_type=0
+    -->
+    <select id="findOneByUserId" resultType="com.wuai.company.entity.Orders">
+        SELECT * FROM t_orders where user_id = #{userId}  and deleted=FALSE and pay_type in (1,5,6,7)  AND sel_time_type=0
+    </select>
+<!--接收订单-->
+    <update id="invitationReceive">
+      UPDATE t_orders
+      <set>
+          <if test="userId!=null">user_invitation=#{userId}</if>
+      </set>
+        WHERE uuid = #{uid} and order_type='0' AND deleted= FALSE
+    </update>
+    <select id="findReceives" resultType="com.wuai.company.entity.User">
+        SELECT b.* FROM t_orders_receive a,t_user b where a.user_id=b.id and a.orders_id = #{uid} and a.deleted = FALSE
+    </select>
+    <update id="ordersStart">
+        UPDATE t_orders
+        <set>
+            pay_type=#{payType}
+        </set>
+        where uuid =#{uuid}
+    </update>
+    <select id="findByUuid" resultType="com.wuai.company.order.entity.response.OrdersUserResponse">
+        SELECT b.gender,b.age,b.occupation,b.id, b.phone_num,a.uuid,b.nick_name,b.icon,a.orders_id,a.arrived as isPress from t_orders_receive a,t_user b where a.orders_id = #{ordersId} and a.user_id=b.id and a.deleted= FALSE
+    </select>
+    <!--个人中心 查找订单-->
+    <select id="findAllOfMyOrders" resultType="com.wuai.company.order.entity.response.OrdersDataResponse">
+        select b.* from t_orders_receive a,t_orders b where a.user_id = #{uid} and b.uuid = a.orders_id and b.order_type = 0;
+    </select>
+    <!--SELECT a.* from t_orders a,
+       (SELECT COUNT(a.orders_id) as count ,a.user_id from t_orders_receive a ,
+       (SELECT * from t_orders WHERE user_id = #{uid} and deleted = FALSE) b
+       where a.orders_id=b.uuid group by a.user_id)b
+       WHERE a.user_id = #{uid} and a.person_count>b.count and  a.deleted = FALSE limit 0,10-->
+    <update id="calculation">
+        UPDATE t_user a,(SELECT * from t_orders_receive where orders_id=#{uid}) b
+        <set>
+            <if test="money!=null"> a.money = #{money}</if>
+        </set>
+        WHERE a.id = b.user_id
+    </update>
+    <select id="findDetailedData" resultType="com.wuai.company.order.entity.response.OrdersDataResponse">
+        SELECT * FROM t_orders WHERE uuid = #{uid}
+    </select>
+
+    <insert id="addCycOrders">
+        insert into t_orders (uuid,user_id,start_time,place,sel_time_type,order_period,label,perhaps,scenes,start_time_stamp,`address`)
+        values(#{uuid}, #{userId}, #{startTime},#{place}, #{selTimeType},
+                      #{orderPeriod}, #{label},
+                      #{perhaps}, #{scenes},#{cycLong},#{address});
+    </insert>
+    <select id="findCycOrders" resultType="com.wuai.company.entity.Orders">
+        select * from t_orders where uuid = #{uuid}
+    </select>
+    <select id="findAllOyMyReceive" resultType="com.wuai.company.entity.Orders">
+        select b.* from t_orders_receive a,t_orders b where a.deleted=FALSE and a.user_id = #{userId} and b.uuid = a.orders_id and b.pay_type in (5,6,7)
+    </select>
+
+    <update id="stopCycleOrders">
+        UPDATE t_orders
+        set sel_time_type = 1
+        where user_id=#{userId}
+    </update>
+    <update id="startUpCycleOrders">
+        UPDATE t_orders
+        set sel_time_type = 2
+        where uuid=#{uuid}
+    </update>
+    <select id="findAllCycleOrders"  resultType="com.wuai.company.entity.Orders">
+        SELECT * FROM t_orders where user_id = #{userId} and deleted=FALSE AND order_type='0' AND sel_time_type=#{selTimeType}
+    </select>
+
+    <update id="updateInvitationOnTheWait">
+        UPDATE t_orders set pay_type = #{type} where uuid = #{uid}
+    </update>
+    <select id="findStartTimeLimitOne" resultType="com.wuai.company.entity.Orders">
+        SELECT * from t_orders where pay_type in (1,5,6) and scenes = #{scenes} and user_id = #{userId} and sel_time_type = #{selTimeType} order by start_time_stamp Asc limit 1;
+    </select>
+    <select id="findLastestOne" resultType="com.wuai.company.entity.Orders">
+        SELECT * from t_orders where pay_type in (1,5,6,7) and scenes = #{value} and user_id = #{uid}  <![CDATA[and start_time>=NOW()]]>  and sel_time_type = #{code} order by start_time_stamp Asc limit 1;
+</select>
+    <select id="findReceiveTimeLimitOne" resultType="com.wuai.company.entity.Orders">
+        SELECT * from t_orders
+        where user_id = #{userId} and sel_time_type = #{selTimeType} and pay_type =#{payType}
+        and perhaps=#{perhaps} and scenes = #{scenes}  order by start_time_stamp Asc limit 1;
+    </select>
+    <select id="seek" resultType="com.wuai.company.entity.Orders">
+        SELECT * from t_orders where user_id = #{userId} and sel_time_type = #{selTimeType} limit 1
+    </select>
+    <select id="getSysParameter" resultType="java.lang.String">
+        SELECT `value` from t_sys where `key` = #{key} ;
+    </select>
+    <select id="findOrdersByUserIdPerhaps" resultType="com.wuai.company.entity.Orders">
+        SELECT * from t_orders where user_id= #{userId} and perhaps = #{code}
+        <if test="code=1">and pay_type in (1,5,6,7) </if>
+        <if test="code=2">and pay_type =0 </if>
+        AND sel_time_type=0
+        and deleted=FALSE
+    </select>
+    <select id="findOrdersByUserIdDemand" resultType="com.wuai.company.entity.Orders">
+        SELECT * from t_orders where user_id= #{userId} and perhaps='2' and pay_type='0' and sel_time_type='0' and deleted=FALSE
+    </select>
+    <update id="updateCycTime">
+        update t_orders
+        <set>
+            <if test="cycLong!=null">
+                start_time_stamp = #{cycLong}
+            </if>
+        </set>
+        where uuid =#{uuid}
+    </update>
+    <select id="findAllMyOrders" resultType="com.wuai.company.entity.Orders">
+        SELECT * from t_orders where user_id = #{userId} and perhaps=1 and pay_type in (1,5,6,7) and deleted = false and sel_time_type= 0
+        union all
+        SELECT * from t_orders where user_id = #{userId} and perhaps = 2 and pay_type = 0 and deleted = false and sel_time_type = 0
+    </select>
+    <insert id="addAppraise">
+        INSERT into t_appraise (user_id,appraiser_id,uuid,orders_id,star,content)
+       SELECT #{userId},#{id},#{uuid},#{ordersId},#{star},#{content} FROM dual
+        WHERE not EXISTS (select uuid from t_appraise where uuid = #{uuid})
+
+    </insert>
+    <select id="findOrders" resultType="com.wuai.company.entity.Orders">
+        SELECT * from t_orders where uuid = #{uid} and  deleted = FALSE
+    </select>
+    <select id="findAllAppraiseByUid" resultType="com.wuai.company.entity.Appraise">
+        SELECT * from t_appraise where user_id = #{id} and deleted = FALSE
+    </select>
+    <select id="findStartTimeLimitTen" resultType="com.wuai.company.entity.Orders">
+        SELECT * FROM t_orders where pay_type=1 and perhaps=1 AND user_id=#{userId} and sel_time_type=#{code}
+        and scenes= #{scenes} and deleted = FALSE order by start_time_stamp ASC limit 10
+    </select>
+    <select id="findAllUndoneOrders" resultType="com.wuai.company.entity.Response.UndoneOrders">
+        SELECT uuid,place,start_time from t_orders WHERE scenes=#{value} and user_id = #{id} and sel_time_type = 0 and pay_type in (1,5)
+    </select>
+    <select id="findUndoneOrdersLimitPage" resultType="com.wuai.company.entity.Orders">
+        SELECT * FROM
+            (SELECT * from t_orders
+                  where scenes = #{scenes} and user_id=#{id} and sel_time_type=0
+                  and pay_type in (1,5,6,7) and perhaps=1 and deleted = FALSE and perhaps=#{perhaps}
+                union
+                SELECT * from t_orders
+                  where scenes = #{scenes} and user_id=#{id} and sel_time_type=0
+                  and pay_type = 0 and perhaps=2 and deleted = FALSE and  perhaps=#{perhaps}
+                union
+                  SELECT b.* from
+                    (SELECT * from t_orders_receive where user_id= #{id} and deleted = FALSE ) a,t_orders b
+                    where a.orders_id=b.uuid  and b.pay_type in (1,5,6,7)  and b.scenes = #{scenes}
+            ) h
+         ORDER BY h.start_time_stamp DESC limit #{pageNum},#{pageSize}
+    </select>
+    <update id="deletedReceiver">
+        UPDATE t_orders_receive
+        <set>
+          deleted=TRUE
+        </set>
+        WHERE user_id=#{userId} and orders_id = #{ordersId}
+    </update>
+    <insert id="arrivedPlace">
+        insert into t_arrived_place (user_id,orders_id,longitude,latitude)
+        SELECT #{id},#{ordersId},#{longitude},#{latitude}
+        from dual where not
+        exists(select* from t_arrived_place
+        where t_arrived_place.user_id=#{id}
+        and t_arrived_place.orders_id=#{ordersId})
+    </insert>
+    <select id="commonTalk" resultType="com.wuai.company.entity.Response.CommonTalkResponse">
+        SELECT  `id` ,`value` from t_sys_talk where `key`=#{code}
+    </select>
+    <update id="serverArrived">
+        UPDATE t_orders_receive
+        <set>
+            <if test="aTrue!=null">arrived=#{aTrue}</if>
+        </set>
+        WHERE user_id=#{userId} and orders_id = #{ordersId}
+    </update>
+    <update id="serviceAllArrived">
+        UPDATE t_orders_receive
+        <set>
+            <if test="aTrue!=null">arrived=#{aTrue}</if>
+        </set>
+        where orders_id = #{uid} and deleted = FALSE
+    </update>
+    <select id="findServiceArrived" resultType="com.wuai.company.entity.Response.ServiceArrivedPlaceResponse">
+        SELECT `uuid`,`latitude`,`longitude`,`orders_id`,`user_id` from t_arrived_place where orders_id = #{ordersId} and user_id=#{id} and deleted = FALSE
+    </select>
+    <select id="findAllServiceArrived" resultType="com.wuai.company.entity.Response.ServiceArrivedPlaceResponse">
+        SELECT `uuid`,`latitude`,`longitude`,`orders_id`,`user_id` from t_arrived_place where orders_id = #{orders_id} and deleted = FALSE
+    </select>
+    <select id="findOrdersByStartTimeStemp" resultType="com.wuai.company.entity.Orders">
+        SELECT * from t_orders where user_id=#{userId} and start_time_stamp=#{startTimeStamp} and deleted = false limit 1
+    </select>
+    <update id="deletedOrders">
+        UPDATE t_orders
+        <set>
+            deleted=TRUE
+        </set>
+        WHERE uuid= #{uuid}
+    </update>
+    <select id="activeList" resultType="com.wuai.company.entity.Response.ActiveResponse">
+        SELECT * from t_active WHERE deleted=FALSE limit #{pageNum},10
+    </select>
+    <update id="updatePayType">
+        UPDATE t_orders
+        <set>
+            <if test="type!=null">pay_type=#{type}</if>
+        </set>
+        where uuid = #{uid}
+    </update>
+    <select id="nearbyBody" resultType="com.wuai.company.entity.Response.CoordinateResponse">
+        select a.* from t_nearby a,(SELECT * from t_co_ordinate WHERE user_id=#{id} and deleted = FALSE  and `type` = 2 ) b
+        where a.deleted = false and a.user_id != b.user_id
+        order by((a.latitude-b.latitude)*(a.latitude-b.latitude)+(a.longitude-b.longitude)*(a.longitude-b.longitude))
+        limit #{pageNum},10
+    </select>
+    <select id="nearbyBodyById" resultType="com.wuai.company.entity.NearbyBody">
+        SELECT * from t_nearby WHERE  id = #{id} and deleted=FALSE
+    </select>
+    <insert id="addLongitudeAndLatitude">
+        INSERT into t_nearby(`uuid`,`longitude`,`latitude`,`user_id`)
+        SELECT #{uuid},#{request.longitude},#{request.latitude},#{id}
+        from dual
+        where not exists(SELECT * from t_nearby WHERE user_id = #{id} and deleted= FALSE )
+    </insert>
+    <select id="findNearbyByUserId" resultType="com.wuai.company.entity.NearbyBody">
+        SELECT * from t_nearby WHERE user_id=#{id} and deleted= FALSE
+    </select>
+    <update id="updateLongitudeAndLatitude">
+        UPDATE t_nearby
+        <set>
+            <if test="request.longitude!=null">longitude=#{request.longitude},</if>
+            <if test="request.latitude!=null">latitude=#{request.latitude},</if>
+            <if test="icon!=null">icon=#{icon}</if>
+        </set>
+        where user_id = #{id}
+    </update>
+    <update id="balanceRecharge">
+        UPDATE t_user
+        <set>
+            <if test="money!=null">
+                consume_money=consume_money+#{money}
+            </if>
+        </set>
+        WHERE id=#{id}
+    </update>
+
+    <select id="findOrdersByLoLa"  resultType="com.wuai.company.order.entity.response.OrdersResponse">
+        SELECT a.longitude,a.latitude,a.*,b.nick_name,b.gender,b.icon,d.hourly_fee,b.picture,b.occupation,b.age
+        from t_orders a,t_user b,t_scene d
+        where
+        d.`value`=a.scenes and
+        start_time>NOW() AND
+         sel_time_type=0 and
+        a.user_id = b.id and a.user_id!=#{id}
+        and a.deleted=FALSE AND pay_type ='1'
+        ORDER BY ((latitude-#{latitude})*(latitude-#{latitude})+(longitude-#{longitude})*(longitude-#{longitude}))
+        limit #{pageNum},10;
+    </select>
+    <insert id="createOrdersEachOther">
+        INSERT INTO t_orders_each_other (`uuid`,`user_id`,`start_time`,`order_type`,`grateful_free`,`user_invitation`,`scenes`,`place`,`money`,
+        `longitude`,`latitude`,`address`)
+        SELECT #{uuid},#{id},#{startTime},0,#{gratefulFree},#{userId},#{scenes},#{place},#{money},#{longitude},#{latitude},#{address}
+        FROM DUAL WHERE NOT EXISTS (SELECT uuid from t_orders_each_other where uuid = #{uuid} and deleted= FALSE)
+    </insert>
+    <select id="findAloneOrders" resultType="com.wuai.company.entity.Response.OrdersAloneResponse">
+        SELECT b.*,a.icon,a.nick_name,a.picture from t_user a,(SELECT * from t_orders_each_other
+          WHERE  uuid = #{uuid} and deleted = FALSE)b
+ where a.id = b.user_id
+    </select>
+    <select id="findAllAloneOrders" resultType="com.wuai.company.entity.Response.OrdersAloneResponse">
+                SELECT * from t_orders_each_other WHERE  user_invitation = #{userId} and deleted = FALSE
+    </select>
+    <update id="acceptAloneOrder">
+        UPDATE t_orders_each_other SET `agree`='2' where uuid = #{orderId} and `user_invitation` = #{id}
+    </update>
+</mapper>

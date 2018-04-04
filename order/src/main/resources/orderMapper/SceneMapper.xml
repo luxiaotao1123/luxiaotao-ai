@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuai.company.order.mapper.SceneMapper">
+
+    <resultMap id="SceneResult" type="Scene">
+        <result column="uuid" property="uuid" jdbcType="VARCHAR" javaType="String"/>
+        <result column="key" property="key" jdbcType="VARCHAR" javaType="String"/>
+        <result column="pic" property="pic" jdbcType="VARCHAR" javaType="String"/>
+        <result column="value" property="value" jdbcType="VARCHAR" javaType="String"/>
+        <result column="time_interval" property="timeInterval" jdbcType="VARCHAR" javaType="String"/>
+        <result column="hourly_fee" property="hourlyFee" jdbcType="DOUBLE" javaType="Double"/>
+        <result column="first_start" property="firstStart" jdbcType="INTEGER" javaType="Integer"/>
+        <result column="grateful_free" property="gratefulFree" jdbcType="VARCHAR" javaType="String"/>
+        <result column="ctgr" property="ctgr" jdbcType="VARCHAR" javaType="String"/>
+        <result column="proportion" property="proportion" jdbcType="INTEGER" javaType="Integer"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+        <result column="deleted" property="deleted" jdbcType="BIT" javaType="Boolean"/>
+    </resultMap>
+
+    <cache flushInterval="40000" eviction="FIFO"/>
+
+
+    <insert id="saveScene" useGeneratedKeys="true" keyProperty="id" parameterType="Scene">
+      INSERT INTO t_scene (`user_id`,`uuid`,`key`,`value`)
+      VALUES (#{userId},#{uuid},#{key},#{value})
+  </insert>
+
+    <select id="findAllScene" resultMap="SceneResult">
+        SELECT * from t_scene where deleted = FALSE
+    </select>
+    <select id="findSceneByKey" resultMap="SceneResult">
+        SELECT * from t_scene where `key`=#{key}
+    </select>
+
+    <select id="selectScenePicByScene" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT pic FROM t_tryst_scene WHERE NAME = #{sceneName}
+    </select>
+
+    <select id="selectSceneContentByScene" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT content FROM t_tryst_scene WHERE NAME = #{sceneName}
+    </select>
+</mapper>

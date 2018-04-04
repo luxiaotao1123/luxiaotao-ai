@@ -1,0 +1,42 @@
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+ext {
+    springVersion = '1.5.2.RELEASE'
+    enunciateVersion='2.9.1'
+
+}
+
+
+
+
+jar {
+
+    baseName "order"
+}
+
+dependencies {
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    compile "org.springframework.boot:spring-boot-devtools:$springVersion"
+    compile fileTree(dir: 'lib', include: ['*.jar'])
+    compile project(':scheduler')
+    compile project(':task')
+    compile project(':user')
+    compile project(':store')
+    compile project(':rpc')
+    compile project(':storeManage')
+    compile project(':markingSystem')
+    compile project(':pms')
+    compile project(':party')
+    compile "com.webcohesion.enunciate:enunciate-core:$enunciateVersion"
+    compile "com.webcohesion.enunciate:enunciate-core-annotations:$enunciateVersion"
+    compile "com.webcohesion.enunciate:enunciate-lombok:$enunciateVersion"
+    compile group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: '1.5.7.RELEASE'
+    compile group: 'org.mybatis.generator', name: 'mybatis-generator-core', version: '1.3.5'
+}
+compileJava.dependsOn(processResources)
+

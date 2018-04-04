@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuai.company.order.mapper.TrystMapper">
+    <resultMap id="BaseResultMap" type="com.wuai.company.entity.TrystOrders">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="uuid" jdbcType="VARCHAR" property="uuid" />
+        <result column="scene" jdbcType="VARCHAR" property="scene" />
+        <result column="time" jdbcType="VARCHAR" property="time" />
+        <result column="duration" jdbcType="DOUBLE" property="duration" />
+        <result column="place" jdbcType="VARCHAR" property="place" />
+        <result column="sex" jdbcType="INTEGER" property="sex" />
+        <result column="money" jdbcType="DOUBLE" property="money" />
+        <result column="advance_money" jdbcType="DOUBLE" property="advanceMoney" />
+        <result column="longitude" jdbcType="DOUBLE" property="longitude" />
+        <result column="latitude" jdbcType="DOUBLE" property="latitude" />
+        <result column="person_count" jdbcType="INTEGER" property="personCount" />
+        <result column="show_name" jdbcType="INTEGER" property="showName" />
+        <result column="pay_code" jdbcType="INTEGER" property="payCode" />
+        <result column="user_id" jdbcType="INTEGER" property="userId" />
+        <result column="pay_value" jdbcType="VARCHAR" property="payValue" />
+        <result column="deleted" jdbcType="INTEGER" property="deleted" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    </resultMap>
+
+    <resultMap id="IdDistanceMap" type="com.wuai.company.order.entity.DistancePo">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="distance" jdbcType="VARCHAR" property="distance" />
+    </resultMap>
+
+    <sql id="Base_List">
+        id, uuid, scene, time, duration, place, sex, money, advance_money, longitude, latitude, person_count, show_name, pay_code, user_id, pay_value, deleted, create_time, update_time
+    </sql>
+
+    <!--根据TrystOrder实体类（字段可空）查询list-->
+    <select id="selectTrystOrders" parameterType="com.wuai.company.entity.TrystOrders" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_List"/>
+        FROM t_tryst_orders
+        <where>
+            <if test="id != null ">and t_tryst_orders.id = #{id}</if>
+            <if test="uuid != null ">and t_tryst_orders.uuid = #{uuid}</if>
+            <if test="scene != null ">and t_tryst_orders.scene = #{scene}</if>
+            <if test="time != null ">and t_tryst_orders.time = #{time}</if>
+            <if test="duration != null ">and t_tryst_orders.duration = #{duration}</if>
+            <if test="place != null ">and t_tryst_orders.place = #{place}</if>
+            <if test="sex != null ">and t_tryst_orders.sex = #{sex}</if>
+            <if test="money != null ">and t_tryst_orders.money = #{money}</if>
+            <if test="advanceMoney != null ">and t_tryst_orders.advance_money = #{advanceMoney}</if>
+            <if test="longitude != null ">and t_tryst_orders.longitude = #{longitude}</if>
+            <if test="latitude != null ">and t_tryst_orders.latitude = #{latitude}</if>
+            <if test="personCount != null ">and t_tryst_orders.person_count = #{personCount}</if>
+            <if test="showName != null ">and t_tryst_orders.show_name = #{showName}</if>
+            <if test="payCode != null ">and t_tryst_orders.pay_code = #{payCode}</if>
+            <if test="userId != null ">and t_tryst_orders.user_id = #{userId}</if>
+            <if test="payValue != null ">and t_tryst_orders.pay_value = #{payValue}</if>
+            <if test="deleted != null ">and t_tryst_orders.deleted = #{deleted}</if>
+            <if test="createTime != null ">and t_tryst_orders.create_time = #{createTime}</if>
+            <if test="updateTime != null ">and t_tryst_orders.update_time = #{updateTime}</if>
+        </where>
+        ORDER  BY create_time
+    </select>
+
+    <!--根据经纬度查询出TrystOrder列表（距离最近排序）-->
+    <select id="selectDistanceAndIdByAsc" parameterType="java.util.Map" resultMap="IdDistanceMap">
+        SELECT id,ROUND(
+        6378.138 * 2 * ASIN(
+            SQRT(
+                POW(
+                    SIN(
+                        (
+                            #{latitude} * PI() / 180 - latitude * PI() / 180
+                        ) / 2
+                    ),
+                    2
+                ) + COS(#{latitude} * PI() / 180) * COS(latitude * PI() / 180) * POW(
+                    SIN(
+                        (
+                            #{longitude} * PI() / 180 - longitude * PI() / 180
+                        ) / 2
+                    ),
+                    2
+                )
+            )
+        ) * 1000
+    ) AS distance
+    FROM `t_tryst_orders`
+    WHERE pay_code = #{payCode}
+    ORDER BY distance ASC
+    </select>
+
+    <!--<cache flushInterval="40000" eviction="FIFO"/>-->
+    <select id="trystScenes" resultType="com.wuai.company.order.entity.TrystScenes">
+        SELECT `uuid`,`icon`,`name`,`type`,`content`,`pic`,`sort`
+        from t_tryst_scene where `type`= #{code} and deleted=FALSE
+    </select>
+    <insert id="createTrystOrders">
+        insert into t_tryst_orders(`user_id`,`uuid`,`scene`,`time`,`duration`,`place`,`sex`,`money`,`advance_money`,`longitude`,`latitude`,`person_count`,`show_name`,`pay_code`,`pay_value`)
+        SELECT #{id},#{uuid},#{trystOrdersRequest.scene},#{trystOrdersRequest.time},#{trystOrdersRequest.duration},#{trystOrdersRequest.place},#{trystOrdersRequest.sex},
+        #{trystOrdersRequest.money},#{trystOrdersRequest.advanceMoney},#{trystOrdersRequest.longitude},#{trystOrdersRequest.latitude},#{trystOrdersRequest.personCount},#{trystOrdersRequest.showName},
+        #{code},#{value}
+        from dual where not EXISTS (SELECT uuid from t_tryst_orders where uuid = #{uuid})
+    </insert>
+    <select id="findNearBody" resultType="com.wuai.company.entity.Response.NearBodyResponse">
+        SELECT `id`,`uuid`,`icon`,`nick_name`,`gender`,`zodiac`,`age`,`height`,`weight`,`city`,`signature` from t_user WHERE id = #{id} and deleted=FALSE
+    </select>
+    <select id="findUserVides" resultType="com.wuai.company.entity.Response.UserVideoResponse">
+        SELECT * from t_user_video where deleted=false and video_check='1' and user_id=#{id}
+    </select>
+    <select id="findUserById" resultType="com.wuai.company.entity.User">
+        SELECT * from t_user where id = #{userId} and deleted =FALSE
+    </select>
+    <select id="findTrystOrdersByUid" resultType="com.wuai.company.entity.TrystOrders">
+        SELECT * from t_tryst_orders where uuid = #{trystId} and deleted=FALSE
+    </select>
+    <select id="findTrystOrdersByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_List"/>
+        FROM t_tryst_orders
+        WHERE user_id = #{userId}
+    </select>
+    <select id="findTrystOrdersList" resultType="com.wuai.company.entity.TrystOrders">
+        SELECT * from t_tryst_orders where sex IN (${gender},2) and deleted = false and pay_code = #{payCode} order by create_time desc
+    </select>
+    <insert id="addTrystOrdersSnatch">
+        insert into t_tryst_orders_snatch(`uuid`,`tryst_id`,`user_id`)
+        SELECT #{uuid},#{trystId},#{id} from dual where not exists (select uuid from t_tryst_orders_snatch where uuid = #{uuid})
+    </insert>
+    <select id="findOrdersSnatchSize" resultType="java.lang.Integer">
+        SELECT count(uuid) from t_tryst_orders_snatch where tryst_id = #{trystId} and deleted = false
+    </select>
+    <select id="findTrystSnatch" resultType="java.lang.Integer">
+        SELECT count(uuid) from t_tryst_orders_snatch where tryst_id = #{uuid} and user_id = #{id} and deleted = false
+    </select>
+    <select id="findTrystOrdersListById" resultType="com.wuai.company.entity.TrystOrders">
+        SELECT * from t_tryst_orders where pay_code IN (1,2) and user_id = #{id} and deleted =FALSE
+    </select>
+    <select id="findUserVideoById" resultType="com.wuai.company.entity.Response.UserVideoResponse">
+        SELECT * from t_user_video where video_check='1' and video_type='0' and user_id = #{id} and deleted = FALSE
+    </select>
+    <select id="findMyCoupons" resultType="com.wuai.company.entity.Coupons">
+        SELECT a.* from t_coupons a left join t_coupons_orders b on a.uuid=b.coupons_uuid and  b.deleted=FALSE WHERE b.user_id=#{id}
+    </select>
+    <insert id="addTrystOrdersReceive">
+        insert into t_tryst_receive(`uuid`,`tryst_id`,`user_id`,`money`,`deleted`)
+        SELECT #{uuid},#{trystId},#{userId},#{money},#{deleted} from dual where not exists (select uuid from t_tryst_receive where uuid = #{uuid} and deleted = FALSE)
+    </insert>
+    <select id="findVideoHome" resultType="com.wuai.company.entity.VideoHome">
+        SELECT * from t_video_home where deleted=false and type_code=#{code}
+    </select>
+    <update id="upTrystPersonCount">
+        UPDATE t_tryst_orders set person_count=#{personCount} WHERE uuid = #{uuid}
+    </update>
+    <update id="calcelTrystOrders">
+        UPDATE t_tryst_orders set pay_code=#{code}, pay_value=#{value} WHERE uuid = #{uuid}
+    </update>
+    <update id="upMoney">
+        UPDATE t_user set money=money+#{money} WHERE id = #{id}
+    </update>
+    <select id="findCancelTryst" resultType="com.wuai.company.entity.TrystCancel">
+        SELECT * from t_tryst_cancel where user_id = #{id} and today= #{today} and `type` = #{type} and deleted = FALSE
+    </select>
+    <insert id="cancelTryst">
+        insert into t_tryst_cancel(`uuid`,`user_id`,`tryst_id`,`today`,`date`,`code_value`,`code`,`time`,`type`,`reason`)
+        SELECT #{uid}, #{userId}, #{uuid}, #{today}, #{date}, #{value}, #{code}, #{time}, #{type}, #{reason}
+        FROM dual WHERE NOT EXISTS (SELECT uuid FROM t_tryst_cancel WHERE uuid = #{uuid})
+    </insert>
+    <select id="findCancelTrystFir" resultType="com.wuai.company.entity.TrystCancel">
+        SELECT * from t_tryst_cancel where user_id=#{id} and `type` = #{type} and code = #{code} and deleted = FALSE
+    </select>
+    <update id="addTimeByCancelTryst">
+        UPDATE t_tryst_cancel
+        SET time = time + 1,tryst_id = CONCAT(tryst_id,',',#{trystId}),reason = CONCAT(reason,'_',#{reason})
+        WHERE uuid = #{uuid}
+    </update>
+    <select id="findTrystReceive" resultType="com.wuai.company.entity.TrystReceive">
+        SELECT * from t_tryst_receive where uuid = #{uuid} and deleted = FALSE
+    </select>
+    <update id="upTrystOrdersPay">
+        UPDATE t_tryst_orders
+        set pay_code = #{code}, pay_value = #{value}
+        WHERE uuid = #{trystId}
+    </update>
+    <delete id="delectReceiveByUserId">
+        DELETE FROM t_tryst_receive
+        WHERE user_id = #{userId}
+        AND tryst_id = #{trystId}
+    </delete>
+    <update id="logicDelectReceiveByUserId">
+        UPDATE t_tryst_receive
+        SET deleted = TRUE
+        WHERE user_id = #{userId}
+        AND tryst_id = #{trystId}
+    </update>
+    <select id="selectTrystOrderByReceiveUserId" resultMap="BaseResultMap">
+        SELECT * FROM `t_tryst_orders`
+        WHERE UUID IN (
+        SELECT tryst_id FROM `t_tryst_receive` WHERE user_id = #{userId} AND deleted = FALSE
+        )
+        OR user_id =#{userId}
+        AND pay_code IN (3,4,5,2)
+        AND deleted = FALSE
+        ORDER BY
+        FIELD(`pay_code`,3,4,5,2) DESC,
+        create_time DESC
+        limit #{pageNum}, 10
+    </select>
+    <update id="reduceTrystPersonCount" parameterType="java.lang.String">
+        UPDATE t_tryst_orders
+        SET person_count = person_count - 1
+        WHERE uuid = #{trystId}
+    </update>
+    <!--修改约会时间-->
+    <update id="updateTimeAndDurAndShowByTrystId">
+        UPDATE t_tryst_orders
+        SET time = #{time},
+        duration = #{duration},
+        show_name = #{showName}
+        WHERE uuid = #{trystId}
+    </update>
+    <!--查看作为赴约方在订单已付款的情况下取消订单的次数-->
+    <select id="selectCancelCountByService" resultType="java.lang.Integer">
+        SELECT COUNT(UUID) FROM t_tryst_cancel WHERE user_id = #{userId} AND CODE = 1 AND TYPE = 1 AND deleted = FALSE
+    </select>
+    <!--查看作为赴约用户，他当前参加的订单表（抢单和待完成）-->
+    <select id="selectTrystOrdersByReceivAndUserId" resultType="com.wuai.company.entity.TrystOrders">
+        SELECT * FROM t_tryst_orders WHERE pay_code IN (1,2) AND deleted =FALSE AND UUID IN
+        (SELECT tryst_id FROM t_tryst_receive WHERE user_id = #{userId} AND deleted = FALSE)
+    </select>
+    <select id="selectUsersByCancel" resultType="java.lang.Integer">
+        SELECT user_id FROM t_tryst_cancel WHERE tryst_id = #{trystId} AND deleted = FALSE
+    </select>
+    <select id="selectReceiveByTryst" resultType="com.wuai.company.entity.TrystReceive">
+        SELECT * from t_tryst_receive where tryst_id = #{trystId} and deleted = FALSE
+    </select>
+</mapper>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuai.company.party.mapper.PartyMapper">
+    <!--<cache flushInterval="40000" eviction="FIFO"/>-->
+    <select id="findAll" resultType="com.wuai.company.entity.Response.PartyHomePageResponse">
+        SELECT b.*,a.collectionNum from
+        t_party b LEFT JOIN
+        (SELECT COUNT(collection_id) as collectionNum,a.collection_id from t_party_collections a,t_party b where a.collection_id=b.uuid  GROUP BY collection_id) a
+        ON a.collection_id=b.uuid
+        where b.deleted = false
+        and b.examine_and_verify='通过'
+        <if test="classify!=null and classify!=''">
+            and b.classify=#{classify}
+        </if>
+        limit #{pageNum},10
+
+    </select>
+
+    <select id="findDetailedInformation" resultType="com.wuai.company.entity.Response.PartyDetailedInformationResponse">
+        SELECT a.*,COUNT(b.uuid) as sellNum from t_party a left join t_party_orders b on a.uuid=b.party_uuid and b.deleted = FALSE
+        where a.uuid = #{uuid}  and a.deleted = FALSE
+        GROUP BY a.id
+    </select>
+    <select id="findDetailedInformation2" resultType="com.wuai.company.entity.Response.PartyDetailedInformationResponse">
+        SELECT a.*,COUNT(b.uuid) as sellNum,d.collect from t_party a left join t_party_orders b ON a.uuid=b.party_uuid and b.deleted = FALSE,
+        (SELECT COUNT(collection_id) as collect from t_party_collections  where collection_id=#{uuid} and user_id=#{id}) d
+        where a.uuid = #{uuid}  and a.deleted = FALSE
+        GROUP BY a.id,d.collect
+    </select>
+
+
+    <insert id="partyPay">
+        INSERT into t_party_orders(`uuid`,`user_id`,`party_uuid`,`date`,
+        `time`,`money`,`phone_num`,`topic`,`store_phone`,`pay_code`,`boy_size`,`girl_size`)
+        SELECT #{partyId},#{id}, #{uuid}, #{date}, #{time}, #{money},
+        #{phoneNum}, #{topic}, #{storePhone},#{payCode},#{boySize},#{girlSize}
+        from dual where not EXISTS (SELECT uuid from t_party_orders where uuid = #{partyId})
+    </insert>
+    <select id="findPartyOrderByUidAndId" resultType="com.wuai.company.entity.Response.PartyOrdersResponse">
+        SELECT * from t_party_orders where user_id = #{id} and party_uuid=#{uuid} and deleted = FALSE and pay_code=1
+    </select>
+    <select id="findPartyByDateAndUid" resultType="java.lang.Integer">
+        SELECT COUNT(uuid) from t_party_orders where party_uuid = #{uuid} and `date` = #{date} and pay_code=1 and deleted = FALSE
+    </select>
+    <select id="findSysValue" resultType="java.lang.String">
+        SELECT `value` from t_sys where `key` = #{key} and status=1
+    </select>
+    <select id="findPartyOrdersByUid" resultType="com.wuai.company.entity.Response.PartyOrdersResponse">
+        SELECT * from t_party_orders where deleted = false and uuid = #{uuid}
+    </select>
+    <insert id="addCollection">
+        insert into t_party_collections(`collection_id`,`user_id`)
+        SELECT #{uuid},#{id} from dual WHERE not EXISTS (SELECT * from t_party_collections
+        WHERE  `collection_id`=#{uuid} and `user_id`=#{id})
+    </insert>
+    <delete id="delCollection">
+        DELETE from t_party_collections where  `collection_id`=#{uuid} and `user_id`=#{id}
+    </delete>
+    <insert id="addMessage">
+        insert into t_party_message (`user_id`,`uuid`,`message`,`party_id`,`date`)
+        SELECT #{id},#{uuid},#{message},#{partyId},#{date} from dual where not EXISTS
+          (SELECT * from  t_party_message where uuid = #{uuid})
+    </insert>
+    <select id="myMessageSize" resultType="java.lang.Integer">
+        SELECT count(uuid) from t_party_message where  uuid = #{partyId} and user_id = #{id} and deleted = FALSE
+    </select>
+    <select id="messageAll" resultType="com.wuai.company.entity.Response.MessageAllResponse">
+        SELECT a.* ,b.nick_name,b.icon from t_party_message a left join t_user b on a.user_id = b.id
+         where party_id=#{uuid} and a.deleted = false limit #{pageNum},#{pageSize}
+    </select>
+    <select id="myCollections" resultType="com.wuai.company.entity.Response.PartyHomePageResponse">
+        SELECT b.* from
+        t_party b ,t_party_collections a
+        where b.deleted = false and a.collection_id = b.uuid and a.user_id=#{id} and a.deleted=FALSE
+        limit #{pageNum},10
+    </select>
+</mapper>

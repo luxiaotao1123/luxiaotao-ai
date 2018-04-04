@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuai.company.store.mapper.StoreMapper">
+
+    <resultMap id="StoreResult" type="Store">
+        <result column="id" property="id" jdbcType="INTEGER" javaType="Integer"/>
+        <result column="maps_id" property="mapsId" jdbcType="INTEGER" javaType="Integer"/>
+        <result column="uuid" property="uid" jdbcType="VARCHAR" javaType="String"/>
+        <result column="name" property="name" jdbcType="VARCHAR" javaType="String"/>
+        <result column="address" property="address" jdbcType="VARCHAR" javaType="String"/>
+        <result column="banner" property="banner" jdbcType="VARCHAR" javaType="String"/>
+        <result column="pictures" property="pictures" jdbcType="VARCHAR" javaType="String"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR" javaType="String"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+        <result column="deleted" property="deleted" jdbcType="TINYINT" javaType="Integer"/>
+    </resultMap>
+
+
+    <cache flushInterval="40000" eviction="FIFO"/>
+    <select id="findStoreByScene" resultType="com.wuai.company.store.entity.response.StoresResponse">
+        select b.* from t_maps a,t_store b where a.scene=#{scene} and a.id=b.maps_id
+        order by ((latitude-#{latitude})*(latitude-#{latitude})+(longitude-#{longitude})*(longitude-#{longitude})) ASC
+        limit #{pageNum},10
+    </select>
+    <select id="home" resultMap="StoreResult">
+        select b.*
+          from t_maps a,t_store b
+          where a.id=b.maps_id
+          order by ((latitude-#{latitude})*(latitude-#{latitude})+(longitude-#{longitude})*(longitude-#{longitude})) ASC
+          limit #{pageNum},10
+    </select>
+    <select id="findMapsLoAndLaById" resultType="com.wuai.company.entity.Maps">
+        SELECT * from t_maps where id = #{mapsId}
+    </select>
+    <insert id="addStoreDetails">
+        INSERT INTO t_detail (`uuid`,`user_id`,`orders_id`,`money`,`type`,`is_store`)VALUES (#{uid},#{userId},#{comboId},#{price},#{type},#{isStore})
+    </insert>
+    <select id="findMerchantByUid" resultType="com.wuai.company.store.entity.Merchant">
+        SELECT * FROM t_merchant_user WHERE  store_id = #{uid} and deleted = FALSE
+    </select>
+    <update id="merchantBanner">
+        UPDATE t_store
+        <set>
+            <if test="banner!=null">
+                banner=#{banner}
+            </if>
+        </set>
+        WHERE uuid = #{uid} and deleted = FALSE
+    </update>
+    <select id="findStorePicturesByUid" resultType="String">
+        SELECT pictures FROM t_store where uuid = #{uid}
+    </select>
+    <!--<select id="selectStore" resultMap="StoreResult">-->
+         <!--SELECT a.* from t_store a,t_maps b where b.scene=#{value} and a.maps_id=b.id and b.`name` LIKE concat(concat('%',#{name}),'%') limit 4-->
+    <!--</select>-->
+    <select id="selectStore" resultType="com.wuai.company.store.entity.response.StoresResponse">
+        select b.* from t_maps a,t_store b where a.scene=#{value} and a.id=b.maps_id and a.`name` LIKE concat(concat('%',#{name}),'%')
+        order by ((latitude-#{latitude})*(latitude-#{latitude})+(longitude-#{longitude})*(longitude-#{longitude})) ASC
+        limit 4
+    </select>
+    <select id="findMerchantUser" resultType="com.wuai.company.entity.MerchantUser">
+        SELECT * FROM t_merchant_user where username=#{username} and password = #{password} and deleted = FALSE
+    </select>
+    <select id="findData" resultType="com.wuai.company.entity.Maps">
+        SELECT * FROM t_maps WHERE `name` LIKE concat(concat('%',#{name},'%')) limit 10;
+    </select>
+    <select id="findMerchantByUser" resultType="com.wuai.company.store.entity.Merchant">
+        SELECT * from t_merchant_user where username = #{username}
+    </select>
+    <insert id="insertMerchantUser">
+        INSERT INTO t_merchant_user (`uuid`,`username`,`password`) VALUES (#{uid},#{username},#{password})
+    </insert>
+    <insert id="insertStore">
+        insert into t_store (`maps_id`,`uuid`,`name`,`address`,`phone`) values (#{mapsId},#{uid},#{name},#{address},#{phone});
+    </insert>
+    <update id="updateMerchantUser">
+        update t_merchant_user set  store_id=#{uuid}  where uuid = #{uid} ;
+    </update>
+    <select id="findStoreByMapsId" resultMap="StoreResult">
+        select * from t_store where maps_id = #{mapsId} and deleted = FALSE ;
+    </select>
+    <update id="merchantUpdatePass">
+        update t_merchant_user
+        <set>
+        <if test="newPass!=null">password=#{newPass}</if>
+      </set>
+        where username= #{name};
+    </update>
+    <insert id="addCombo">
+        insert into t_combo (`uuid`,`store_id`,`combo`,`price`,`picture`,`summary`) values (#{uid},#{storeId},#{combo},#{price},NULL,#{summary} );
+    </insert>
+    <insert id="addCommodity">
+        insert into t_commodity (`uuid`,`combo_id`,`name`,`price`,`size`) values (#{id},#{uid},#{commodityName},#{commodityPri},#{commoditySi});
+    </insert>
+    <select id="findComboByName" resultType="com.wuai.company.store.entity.response.ComboResponse">
+        select a.combo,a.price,a.uuid ,a.summary from t_combo a,t_merchant_user b WHERE b.username=#{name} and a.store_id=b.store_id
+    </select>
+    <select id="findCommodityByName" resultType="com.wuai.company.store.entity.Commodity">
+        select uuid as uid,combo_id,`name`,`size`,`price` from t_commodity where combo_id=#{uid};
+    </select>
+    <select id="findStoreByName" resultType="java.lang.String">
+        select store_id from t_merchant_user where username = #{name} and deleted= FALSE ;
+    </select>
+    <update id="upCommodity">
+        update t_commodity
+        <set>
+        <if test="commodityName!=null">`name`=#{commodityName},</if>
+        <if test="commodityPri!=null">`price`=#{commodityPri},</if>
+        <if test="commoditySi!=null">`size`=#{commoditySi}</if>
+    </set>   where uuid = #{uid} ;
+    </update>
+    <delete id="delCombo">
+        DELETE FROM t_combo where uuid=#{uid}
+    </delete>
+    <delete id="delCommodity">
+        DELETE FROM t_commodity where combo_id=#{uid}
+    </delete>
+    <update id="upCombo">
+        update t_combo
+        <set>
+          <if test="combo!=null">combo=#{combo},</if>
+          <if test="price!=null">price=#{price}</if>
+        </set>
+        where uuid=#{uid};
+    </update>
+    <select id="findStore" resultMap="StoreResult">
+        SELECT a.* FROM t_store a,t_merchant_user b WHERE a.uuid = b.store_id AND b.username=#{name}
+    </select>
+    <update id="storeBanner">
+        update t_store
+        <set>
+            <if test="pictures!=null">pictures=#{pictures}</if>
+        </set>
+        where uuid = #{storeId} ;
+    </update>
+    <insert id="addStoreOrders">
+        insert into t_store_orders (uuid,combo_id,user_id,money,merchant_id,store_id,`type`)
+        values (#{uuid},#{uid},#{userId},#{price},#{merchantId},#{storeId},#{payType});
+    </insert>
+    <select id="findAllUser" resultType="com.wuai.company.entity.User">
+      SELECT * from t_user
+    </select>
+    <select id="findAllManage" resultType="com.wuai.company.entity.MerchantUser">
+      SELECT * from t_merchant_user
+    </select>
+    <update id="comboPic">
+        UPDATE t_combo set picture = #{pic} where uuid=#{comboId}
+    </update>
+    <select id="activeContent" resultType="com.wuai.company.entity.ActiveContent">
+        SELECT * from t_active_content limit #{pageNum},10
+    </select>
+    <select id="task" resultType="com.wuai.company.entity.Response.StoreTaskResponse">
+        SELECT * from t_store_active where deleted = false limit #{pageNum},10;
+    </select>
+    <select id="taskDetailed" resultType="com.wuai.company.entity.Response.StoreTaskDetailedResponse">
+        SELECT * from t_store_active where deleted = false and uuid=#{uuid}
+    </select>
+    <insert id="taskPay">
+        insert into t_task_pay(`uuid`,`user_id`,`money`,`task_detailed_id`,`deleted`,`up_uuid`,`topic`,`size`,`note`)
+        SELECT #{payId},#{id},#{money},#{uuid},TRUE,#{upUuid},#{topic},#{size},#{note} from dual where not EXISTS (select uuid from t_task_pay where uuid = #{payId})
+    </insert>
+    <select id="taskMine" resultType="com.wuai.company.entity.Response.TaskMineResponse">
+        SELECT * from t_task_pay
+        where user_id = #{userId} and deleted = false limit #{pageNum},10
+    </select>
+    <select id="findAddressById" resultType="com.wuai.company.entity.Response.ShippingAddressResponse">
+        SELECT *
+        from t_shipping_address
+        WHERE user_id = #{userId} and deleted = FALSE
+    </select>
+    <update id="updateShippingAddress">
+        UPDATE t_shipping_address
+        <set>
+            <if test="request.province">province=#{request.province},</if>
+            <if test="request.city">city=#{request.city},</if>
+            <if test="request.province">province=#{request.province},</if>
+            <if test="request.nickName">nick_name=#{request.nickName},</if>
+            <if test="request.phoneNum">phone_num=#{request.phoneNum},</if>
+            <if test="request.address">address=#{request.address}</if>
+        </set>
+        where uuid = #{request.uuid}
+    </update>
+    <insert id="addShippingAddress">
+        INSERT into t_shipping_address(`uuid`,`province`,`city`,`address`,`user_id`,`phone_num`,`nick_name`)
+        SELECT #{request.uuid},#{request.province},#{request.city},#{request.address},#{request.userId},#{request.phoneNum},#{request.nickName}
+        from dual WHERE not EXISTS (SELECT  uuid from t_shipping_address where uuid=#{request.uuid})
+    </insert>
+    <select id="findTaskPayUpUserId" resultType="java.lang.Integer">
+        SELECT user_id as upUserId from t_task_pay WHERE uuid = #{upUuid} and deleted = FALSE
+    </select>
+    <select id="findTaskPayByUserIdUpUuId"  resultType="java.lang.String">
+         select uuid from t_task_pay where user_id = #{id} and up_uuid = #{upUuid} and deleted = FALSE
+    </select>
+    <select id="findAllMyTaskPayByUpUuid" resultType="java.lang.Integer">
+        SELECT `size`-count(*) from t_task_pay where up_uuid = #{upUuid} and deleted = FALSE
+    </select>
+    <select id="findTaskPayByUpUuid"  resultType="java.lang.Integer">
+        select count(uuid) as downSize from t_task_pay where up_uuid = #{uuid} and deleted = false
+    </select>
+    <select id="comboDetails"  resultType="com.wuai.company.entity.Response.CombodityResponse">
+        SELECT * FROM t_commodity WHERE combo_id=#{uid}
+    </select>
+
+    <select id="findStoreByUuid" resultType="com.wuai.company.entity.StoreOrders">
+        select * from t_store_orders where uuid = #{uuid} and deleted = false;
+    </select>
+    <update id="backMoney">
+        UPDATE t_user set money = money+ #{money} where id = #{userId}
+    </update>
+    <update id="cancelStoreOrders">
+        UPDATE t_store_orders set `type` = #{type} where uuid= #{uuid}
+    </update>
+    <select id="couponDetails" resultType="com.wuai.company.entity.Response.CouponDetailsResponse">
+        SELECT a.uuid,a.term_of_validity,b.combo as comboName
+        from t_store_orders a ,t_combo b
+        where a.uuid = #{uuid} and a.combo_id = b.uuid
+</select>
+    <update id="upMerchantIcon">
+        UPDATE t_merchant_user set icon = #{icon},nickname=#{nickname},phone_num=#{phoneNum} where username=#{name}
+    </update>
+</mapper>

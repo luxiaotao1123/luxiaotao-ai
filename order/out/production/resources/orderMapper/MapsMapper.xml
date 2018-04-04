@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuai.company.order.mapper.MapsMapper">
+
+    <resultMap id="MapsResult" type="Maps">
+        <!--<result column="pt" property="pt" jdbcType="POINT" javaType="Point"/>-->
+        <result column="province" property="province" jdbcType="VARCHAR" javaType="String"/>
+        <result column="city" property="city" jdbcType="VARCHAR" javaType="String"/>
+        <result column="longitude" property="longitude" jdbcType="DOUBLE" javaType="Double"/>
+        <result column="latitude" property="latitude" jdbcType="DOUBLE" javaType="Double"/>
+    </resultMap>
+
+    <cache flushInterval="40000" eviction="FIFO"/>
+
+    <select id="invitationFindPlace" resultMap="MapsResult">
+        select id, pt,city from t_map where 0.5 >= GLength(LineStringFromWKB(LineString(pt, point(#{longitude} ,#{latitude}))))
+    </select>
+    <select id="findMaps" resultType="com.wuai.company.entity.Maps">
+        SELECT * FROM t_maps WHERE
+         <if test="scene">scene=#{scene} and </if>
+         name LIKE concat(concat('%',#{maps},'%'))
+        order by ((latitude-#{latitude})*(latitude-#{latitude})+(longitude-#{longitude})*(longitude-#{longitude})) ASC
+        limit #{pageNum},10
+    </select>
+    <select id="findMap" resultType="com.wuai.company.entity.Maps">
+        SELECT * FROM  t_maps where name=#{maps}
+    </select>
+
+</mapper>

@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuai.company.pms.mapper.PmsMapper">
+
+    <!--二级缓存-->
+    <!--<cache flushInterval="40000" eviction="FIFO"/>-->
+    <select id="allActiveContent" resultType="com.wuai.company.entity.ActiveContent">
+        SELECT * from t_active where deleted = FALSE limit #{pageNum},10
+    </select>
+    <select id="sizeOfActive" resultType="java.lang.Integer">
+        SELECT COUNT(*) from t_active WHERE deleted = FALSE
+    </select>
+    <select id="sizeOfUser" resultType="java.lang.Integer">
+        SELECT COUNT(*) from t_user WHERE deleted = FALSE
+        <if test="phone!=null and phone!=''">and phone_num=#{phone}</if>
+        <if test="startTime!=null and startTime!=''">
+            <![CDATA[and DATE_FORMAT(create_time, '%Y-%m-%d')>=  DATE_FORMAT(#{startTime}, '%Y-%m-%d')]]>
+        </if>
+        <if test="endTime!=null and endTime!=''">
+            <![CDATA[and DATE_FORMAT(create_time, '%Y-%m-%d')<=  DATE_FORMAT(#{endTime}, '%Y-%m-%d')]]>
+        </if>
+    </select>
+    <select id="sizeOfDetails" resultType="com.wuai.company.entity.Response.InvitationDetailResponse">
+        SELECT *
+        from t_user a, (select * from t_details WHERE deleted=FALSE) b
+        WHERE a.deleted=false
+        <if test="code==0">
+            and a.id in (b.pay_id,b.payed_id)
+        </if>
+        <if test="code==1">
+            and a.id = b.pay_id
+        </if>
+        <if test="code==2">
+            and a.id = b.payed_id
+        </if>
+        <if test="startTime!=null and startTime!=''">
+            <![CDATA[and DATE_FORMAT(b.create_time, '%Y-%m-%d')>=  DATE_FORMAT(#{startTime}, '%Y-%m-%d')]]>
+        </if>
+        <if test="endTime!=null and endTime!=''">
+            <![CDATA[and DATE_FORMAT(b.create_time, '%Y-%m-%d')<=  DATE_FORMAT(#{endTime}, '%Y-%m-%d')]]>
+        </if>
+        <if test="name!=null and name!=''">
+            and #{name} in (a.id,a.phone_num,a.real_name,b.orders_id)
+        </if>
+
+
+    </select>
+    <select id="sizeOfOrdersMange" resultType="java.lang.Integer">
+        SELECT COUNT(*) from t_orders WHERE deleted = FALSE
+        <if test="startTime!=null and startTime!=''">
+            <![CDATA[and start_time>=  #{startTime}]]>
+        </if>
+        <if test="endTime!=null and endTime!=''">
+            <![CDATA[and start_time<=  #{endTime}]]>
+        </if>
+        <if test="name!=null and name!=''">
+            and #{name} in (scenes,uuid,user_id)
+        </if>
+        <if test="type==0">
+
+        </if>
+        <if test="type==1">
+            and pay_type =1 and perhaps = 1
+        </if>
+        <if test="type ==1 ">
+            and pay_type =0 and perhaps = 2
+        </if>
+        <if test="type==2">
+            and pay_type IN (5,7)
+        </if>
+        <if test="type==3">
+            and pay_type = 6
+        </if>
+        <if test="type==4">
+            and pay_type =2
+        </if>
+        and sel_time_type=0
+    </select>
+    <select id="sizeOfAdmin" resultType="java.lang.Integer">
+        SELECT COUNT(*) from t_admin WHERE deleted = FALSE and grade ='2'
+    </select>
+    <insert id="addActive">
+        insert into t_active(`uuid`,`pic`,`topic`,`content`,`time`)
+        SELECT #{uuid},#{pic},#{topic},#{content},#{time} from dual
+        where not EXISTS (select uuid from t_active where uuid = #{uuid})
+    </insert>
+    <insert id="addOperationNote">
+        insert into t_operation_note (`uuid`,`admin_id`,`manipulated_uid`,`type`,`note`)
+        SELECT #{operationId},#{id},#{uuid},#{code},#{value} from dual
+        WHERE not EXISTS (select uuid from t_operation_note where uuid = #{operationId})
+    </insert>
+    <update id="updateActive">
+    UPDATE t_active
+    <set>
+        <if test="pic!=null">`pic`=#{pic},</if>
+        <if test="topic!=null">`topic`=#{topic},</if>
+        <if test="content!=null">`content`=#{content},</if>
+        <if test="time!=null">`time`=#{time}</if>
+    </set>
+    WHERE uuid=#{uuid}
+</update>
+    <update id="deletedActive">
+        UPDATE t_active
+        <set>
+            deleted=TRUE
+        </set>
+        WHERE uuid=#{uuid}
+    </update>
+    <select id="findUser" resultType="com.wuai.company.entity.User">
+        SELECT * from t_user WHERE deleted = FALSE
+        <if test="phone!=null and phone!=''">and phone_num=#{phone}</if>
+        <if test="start!=null and start!=''">
+            <![CDATA[and DATE_FORMAT(create_time, '%Y-%m-%d')>=  DATE_FORMAT(#{start}, '%Y-%m-%d')]]>
+        </if>
+        <if test="end!=null and end!=''">
+            <![CDATA[and DATE_FORMAT(create_time, '%Y-%m-%d')<=  DATE_FORMAT(#{end}, '%Y-%m-%d')]]>
+        </if>
+        limit #{pageNum},10
+    </select>
+
+    <select id="findInvitationDetail" resultType="com.wuai.company.entity.Response.InvitationDetailResponse">
+        SELECT a.real_name,a.id as userId,a.phone_num,b.*
+        from t_user a, (select * from t_details WHERE deleted=FALSE) b
+        WHERE a.deleted=false
+        <if test="code==0">
+           and a.id in (b.pay_id,b.payed_id)
+        </if>
+        <if test="code==1">
+          and a.id = b.pay_id
+        </if>
+        <if test="code==2">
+          and a.id = b.payed_id
+        </if>
+        <if test="startTime!=null and startTime!=''">
+            <![CDATA[and DATE_FORMAT(b.create_time, '%Y-%m-%d')>=  DATE_FORMAT(#{startTime}, '%Y-%m-%d')]]>
+        </if>
+        <if test="endTime!=null and endTime!=''">
+            <![CDATA[and DATE_FORMAT(b.create_time, '%Y-%m-%d')<=  DATE_FORMAT(#{endTime}, '%Y-%m-%d')]]>
+        </if>
+        <if test="name!=null and name!=''">
+            and #{name} in (a.id,a.phone_num,a.real_name,b.orders_id)
+        </if>
+        limit #{pageNum},10
+    </select>
+    <select id="findOrders" resultType="com.wuai.company.entity.Orders">
+        SELECT * from t_orders WHERE deleted=FALSE
+        <if test="startTime!=null and startTime!=''">
+            <![CDATA[and start_time>=  #{startTime}]]>
+        </if>
+        <if test="endTime!=null and endTime!=''">
+            <![CDATA[and start_time<=  #{endTime}]]>
+        </if>
+        <if test="name!=null and name!=''">
+            and #{name} in (scenes,uuid,user_id)
+        </if>
+        <if test="type==0">
+
+        </if>
+        <if test="type==1">
+          and pay_type =1 and perhaps = 1
+        </if>
+        <if test="type ==1 ">
+            and pay_type =0 and perhaps = 2
+        </if>
+        <if test="type==2">
+            and pay_type IN (5,7)
+        </if>
+        <if test="type==3">
+            and pay_type = 6
+        </if>
+        <if test="type==4">
+            and pay_type =2
+        </if>
+        and sel_time_type=0
+        limit #{pageNum},10
+    </select>
+    <select id="showAdmin" resultType="com.wuai.company.entity.AdminUser">
+        SELECT * from t_admin WHERE deleted = FALSE  and grade !=1
+    </select>
+    <update id="deletedAdmin">
+        update t_admin
+        <set>
+            deleted = TRUE
+        </set>
+        WHERE uuid = #{uuid}
+    </update>
+
+    <select id="showLabel" resultType="com.wuai.company.entity.Response.SysResponse">
+        SELECT `key`,`value` from t_sys_label WHERE `key` in (#{key},#{key1},#{key2},#{key3},#{key4},#{key5})
+    </select>
+    <update id="updateLabel">
+        UPDATE t_sys_label
+        <set>
+            <if test="label!=null and label != ''">
+                `value` = #{label}
+            </if>
+        </set>
+        where `key`= #{key}
+    </update>
+    <select id="findScene" resultType="com.wuai.company.entity.Response.Scene">
+        SELECT  * from t_scene where deleted = FALSE
+    </select>
+    <update id="updateScene">
+        UPDATE t_scene
+        <set>
+            <if test="scene.key!=null and scene.key !=''">
+                `key` = #{scene.key},
+            </if>
+            <if test="scene.value!=null and scene.value !=''">
+                `value` = #{scene.value},
+            </if>
+            <if test="scene.timeInterval!=null and scene.timeInterval !=''">
+                `time_interval` = #{scene.timeInterval},
+            </if>
+            <if test="scene.proportion!=null and scene.proportion !=''">
+                `proportion` = #{scene.proportion},
+            </if>
+            <if test="scene.tips!=null and scene.tips !=''">
+                `tips` = #{scene.tips},
+            </if>
+            <if test="scene.hourlyFee!=null and scene.hourlyFee !=''">
+                `hourly_fee` = #{scene.hourlyFee},
+            </if>
+            <if test="scene.gratefulFree!=null and scene.gratefulFree !=''">
+                `grateful_free` = #{scene.gratefulFree},
+            </if>
+            <if test="scene.firstStart!=null and scene.firstStart !=''">
+                `first_start` = #{scene.firstStart},
+            </if>
+            <if test="scene.pic!=null and scene.pic !=''">
+                `pic` = #{scene.pic},
+            </if>
+            <if test="scene.ctgr!=null and scene.ctgr !=''">
+                `ctgr` = #{scene.ctgr}
+            </if>
+        </set>
+        WHERE uuid = #{scene.uuid} and deleted = FALSE
+    </update>
+    <insert id="insertScene">
+        INSERT into t_scene (`uuid`,`key`,`value`,`time_interval`,`proportion`,`tips`,`hourly_fee`,`grateful_free`,`first_start`,`pic`,`ctgr`)
+        SELECT #{scene.uuid},#{scene.key},#{scene.value},#{scene.timeInterval},#{scene.proportion},#{scene.tips},
+        #{scene.hourlyFee},#{scene.gratefulFree},#{scene.firstStart},#{scene.pic},#{scene.ctgr} from dual
+         WHERE NOT EXISTS (select uuid from t_scene WHERE uuid=#{scene.uuid})
+    </insert>
+    <select id="findSceneByUid" resultType="com.wuai.company.entity.Response.Scene">
+        select * from t_scene where uuid = #{uuid}
+    </select>
+
+    <update id="deletedScene">
+        UPDATE t_scene
+        <set>
+            deleted = TRUE
+        </set>
+        where uuid = #{uuid}
+    </update>
+
+    <update id="updateKey">
+        UPDATE t_scene
+        <set>
+            <if test="key!=null and key != ''">
+                `key` = #{key}
+            </if>
+        </set>
+        where uuid = #{uuid} and deleted = FALSE
+    </update>
+
+    <select id="showTalk" resultType="com.wuai.company.entity.Response.TalkResponse">
+        SELECT * from t_sys_talk WHERE deleted = FALSE
+    </select>
+    <select id="findAdminByName" resultType="com.wuai.company.entity.AdminUser">
+        SELECT * from t_admin where username=#{name}
+    </select>
+    <select id="showSys" resultType="com.wuai.company.entity.Response.SystemResponse">
+        SELECT * from t_sys WHERE status = 1
+    </select>
+    <update id="updateSystem">
+        update t_sys
+        <set>
+           <if test="value!=null">`value`=#{value},</if>
+        </set>
+        WHERE `key`=#{key}
+    </update>
+    <update id="stopBackMoney">
+        UPDATE t_user
+        <set>
+            <if test="key!=null">stop_back_money=#{key}</if>
+        </set>
+        where id = #{userId}
+    </update>
+    <select id="findAllTasks" resultType="com.wuai.company.entity.Response.StoreTaskDetailedResponse">
+        SELECT * from t_store_active where deleted = false limit #{pageNum} , 10
+    </select>
+    <update id="updateTask">
+        UPDATE t_store_active
+        <set>
+            <if test="request.pic!=null">pic=#{request.pic},</if>
+            <if test="request.topic!=null">topic=#{request.topic},</if>
+            <if test="request.content!=null">content=#{request.content},</if>
+            <if test="request.money!=null">money=#{request.money},</if>
+            <if test="request.backMoney!=null">back_money=#{request.backMoney},</if>
+            <if test="request.size!=null">`size`=#{request.size},</if>
+            <if test="request.shopPic!=null">`shop_pic`=#{request.shopPic}</if>
+        </set>
+        where uuid = #{request.uuid}
+    </update>
+    <insert id="addTask">
+        insert into t_store_active(`uuid`,`pic`,`topic`,`content`,`size`,`money`,`shop_pic`,`back_money`)
+        SELECT #{request.uuid},#{request.pic},#{request.topic},#{request.content},#{request.size},#{request.money},#{request.shopPic},#{request.backMoney}
+        from dual where not EXISTS(select uuid from t_store_active where uuid =#{request.uuid} )
+    </insert>
+    <update id="deletedTask">
+        UPDATE t_store_active set deleted=TRUE where uuid = #{uuid}
+    </update>
+    <insert id="inputUserExcel"  parameterType="java.util.List">
+        INSERT INTO
+        t_user(nick_name,icon,picture,age,occupation,height,weight,city,`label`,zodiac,gender,uuid)
+        VALUES
+        <foreach collection="list" item="item" index="index" open="" close="" separator=",">
+            (#{item.nickName},#{item.icon},#{item.picture},#{item.age},#{item.occupation},#{item.height},#{item.weight},
+            #{item.city},#{item.label},#{item.zodiac},#{item.gender},#{item.uuid})
+        </foreach>
+        ON DUPLICATE KEY UPDATE nick_name = #{item.nickName},icon = #{item.icon},picture = #{item.picture},age=#{item.age},`occupation`=#{item.occupation},
+        `height`=#{item.height},`city`=#{item.city},`label`=#{item.label},`zodiac`=#{item.zodiac},`gender`=#{item.gender},`uuid`=#{item.uuid}
+    </insert>
+
+    <insert id="inputOrdersExcel" parameterType="java.util.List">
+        INSERT INTO
+        t_orders(user_id,pay_type,uuid,start_time,sel_time_type,order_period,`person_count`,grateful_free,label,perhaps,scenes,place,money,longitude,latitude,address)
+        VALUES
+        <foreach collection="list" item="item" index="index" open="" close="" separator=",">
+            (#{item.userUuid},#{item.payType},#{item.uuid},#{item.startTime},#{item.selTimeType},#{item.orderPeriod},#{item.personCount},
+            #{item.gratefulFree},#{item.label},#{item.perhaps},#{item.scenes},#{item.place},#{item.money},#{item.longitude},#{item.latitude},#{item.address})
+        </foreach>
+        ON DUPLICATE KEY UPDATE user_id = #{item.userUuid},pay_type = #{item.payType},uuid = #{item.uuid},start_time=#{item.startTime},`sel_time_type`=#{item.selTimeType},
+        `order_period`=#{item.orderPeriod},`person_count`=#{item.personCount},`grateful_free`=#{item.gratefulFree},`label`=#{item.label},`perhaps`=#{item.perhaps},`scenes`=#{item.scenes}
+        ,`place`=#{item.place},`money`=#{item.money},`longitude`=#{item.longitude},`latitude`=#{item.latitude},`address`=#{item.address}
+    </insert>
+    <select id="findUserByUuid" resultType="com.wuai.company.entity.User">
+        SELECT * from t_user where uuid = #{uuid} and deleted = FALSE
+    </select>
+    <select id="activeDetails" resultType="com.wuai.company.entity.Response.ActiveOrdersResponse">
+        SELECT * from (
+        select a.*,DATE_FORMAT(a.create_time, '%Y-%m-%d %T') as `time`
+        ,b.province,b.city,b.address,b.nick_name,b.phone_num
+        from t_task_pay a,t_shipping_address b
+        where a.deleted = false
+        <if test="type!=null">and a.send = #{type} </if>
+        <if test="startTime!=null and startTime != ''"><![CDATA[and a.create_time<=  #{startTime}]]></if>
+        <if test="endTime!=null and endTime != ''"><![CDATA[and a.create_time<=  #{endTime}]]></if>
+        and a.user_id=b.user_id
+        ) t
+       <if test="value!=null and value != ''">
+            where phone_num like concat(concat('%',#{value}),'%')
+           or nick_name like concat(concat('%',#{value}),'%')
+           or uuid like concat(concat('%',#{value}),'%')
+           or express_num like concat(concat('%',#{value}),'%')
+           or express_name like concat(concat('%',#{value}),'%')
+           or topic like concat(concat('%',#{value}),'%')
+       </if>
+        <if test="pageNum!=null">
+            limit #{pageNum},10
+        </if>
+
+    </select>
+
+    <update id="upActiveDetails">
+        UPDATE t_task_pay set express_name = #{expressName} ,express_num=#{expressNum},send=#{send} where uuid=#{uuid}
+    </update>
+    <select id="findMerchantByUser" resultType="com.wuai.company.entity.MerchantUser">
+        SELECT * from t_merchant_user where username = #{username} and deleted = false
+    </select>
+    <insert id="insertMerchantUser">
+        insert into t_merchant_user(`uuid`,`username`,`password`,`code`) VALUES (#{uid},#{username},#{pass},#{type})
+    </insert>
+    <select id="findAllManage" resultType="com.wuai.company.entity.MerchantUser">
+        SELECT * from t_merchant_user where deleted = false
+    </select>
+    <select id="showAllParties" resultType="com.wuai.company.pms.entity.response.PartiesResponse">
+         SELECT * from t_party where  deleted=FALSE
+        <if test="value!=null and value!=''">and examine_and_verify=#{value}</if>
+        limit #{pageNum},10
+    </select>
+    <update id="partyConfirm">
+        UPDATE t_party set `examine_and_verify`=#{value}
+         <if test="note!=null and note!=''">, `note` = #{note}</if>
+        where `uuid` = #{uuid}
+    </update>
+    <select id="partiesSize" resultType="java.lang.Integer">
+        SELECT COUNT(uuid) from t_party WHERE deleted = FALSE
+        <if test="value!=null and value!=''">and examine_and_verify=#{value}</if>
+    </select>
+    <select id="findAllUserVideo" resultType="com.wuai.company.entity.Response.UserVideoResponse">
+        SELECT b.uuid,a.id as userId,a.nick_name,a.phone_num,b.video,b.video_pic,b.video_check,b.video_type,a.gender,DATE_FORMAT(b.create_time, '%Y-%m-%d %T') createTime ,b.note
+        from t_user a left join t_user_video b on a.id=b.user_id and a.deleted=false and b.deleted=FALSE
+        where  b.video_check=#{videoCheck} order BY  b.video_check ASC ,b.update_time DESC
+    </select>
+    <update id="checkVideo">
+        UPDATE t_user_video set video_check = #{videoCheck},note = #{note} where uuid = #{uuid}
+    </update>
+    <select id="findAllCash" resultType="com.wuai.company.entity.Response.WithdrawCashResponse">
+        SELECT a.*,DATE_FORMAT(a.create_time, '%Y-%m-%d %T') as `time`,b.nick_name ,b.account_num,b.phone_num,b.real_name
+        from t_withdraw_cash a LEFT  JOIN t_user b on a.user_id=b.id and a.deleted=FALSE where a.cash=#{cash}
+    </select>
+    <update id="upCash">
+        UPDATE t_withdraw_cash set cash=#{cash} , note = #{note} where uuid=#{uuid}
+    </update>
+    <select id="findVideoByUuid" resultType="com.wuai.company.entity.Response.UserVideoResponse">
+        SELECT * from  t_user_video where deleted = false and uuid = #{uuid}
+    </select>
+    <select id="findCashByUuid" resultType="com.wuai.company.entity.Response.WithdrawCashResponse">
+        SELECT * from t_withdraw_cash where uuid = #{uuid} and deleted=FALSE
+    </select>
+    <select id="findAllCoupons" resultType="com.wuai.company.entity.Coupons">
+        SELECT * from t_coupons where deleted=FALSE
+    </select>
+    <insert id="couponsAdd">
+        insert into t_coupons(`uuid`,`coupons_name`,`coupons_code`,`note`,`del_money`,`content_money`)
+        SELECT #{couponsRequest.uuid},#{couponsRequest.couponsName},#{couponsRequest.couponsCode},#{couponsRequest.note},#{couponsRequest.delMoney},#{couponsRequest.contentMoney}
+        from dual WHERE NOT EXISTS (SELECT  uuid from t_coupons WHERE uuid = #{couponsRequest.uuid})
+</insert>
+    <update id="couponsUp">
+        UPDATE t_coupons
+        <set>
+            <if test="couponsRequest.couponsName!=null and couponsRequest.couponsName!=''">coupons_name=#{couponsRequest.couponsName},</if>
+            <if test="couponsRequest.couponsCode!=null and couponsRequest.couponsCode!=''">coupons_code=#{couponsRequest.couponsCode},</if>
+            <if test="couponsRequest.note!=null and couponsRequest.note!=''">note=#{couponsRequest.note},</if>
+            <if test="couponsRequest.delMoney!=null and couponsRequest.delMoney!=''">del_money=#{couponsRequest.delMoney},</if>
+            <if test="couponsRequest.contentMoney!=null and couponsRequest.contentMoney!=''">content_money=#{couponsRequest.contentMoney}</if>
+        </set>
+
+        where uuid = #{couponsRequest.uuid}
+    </update>
+    <update id="couponsDel">
+        UPDATE t_coupons set deleted=TRUE where uuid = #{uuid}
+    </update>
+    <update id="rechargeWallet">
+        UPDATE t_user set money=money + #{money} where id = #{userId}
+    </update>
+    <insert id="addTrystScene">
+        insert into t_tryst_scene (`uuid`,`pic`,`icon`,`name`,`type`,`sort`,`content`)
+        SELECT #{request.uuid},#{request.pic},#{request.icon},#{request.name},#{request.type},#{request.sort},#{request.content}
+        from dual where not exists (SELECT uuid from t_tryst_scene where uuid =#{request.uuid} )
+    </insert>
+    <insert id="addTrystVideo">
+        insert into t_video_home (`uuid`,`video`,`video_pic`)
+        SELECT #{uuid},#{video},#{videoPic}
+        from dual where not exists (select uuid from t_video_home where uuid = #{uuid})
+    </insert>
+    <select id="showTrystScene" resultType="com.wuai.company.pms.entity.response.TrystSceneResponse">
+        SELECT * from t_tryst_scene where deleted=FALSE
+    </select>
+    <select id="trystVideoShow" resultType="com.wuai.company.pms.entity.response.TrystVideoHomeResponse">
+        SELECT * from t_video_home where deleted=FALSE
+    </select>
+    <update id="trystVideoDel">
+        UPDATE t_video_home  set deleted = true where uuid = #{uuid}
+    </update>
+    <update id="trystSceneDel">
+        UPDATE t_tryst_scene  set deleted = true where uuid = #{uuid}
+    </update>
+    <insert id="insertVideoHomeSelective" parameterType="com.wuai.company.entity.VideoHome" >
+    insert into t_video_home
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+     
+      <if test="uuid != null" >
+        uuid,
+      </if>
+      <if test="video != null" >
+        video,
+      </if>
+      <if test="videoPic != null" >
+        video_pic,
+      </if>
+     
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      
+      <if test="uuid != null" >
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="video != null" >
+        #{video,jdbcType=VARCHAR},
+      </if>
+      <if test="videoPic != null" >
+        #{videoPic,jdbcType=VARCHAR},
+      </if>
+     
+    </trim>
+  </insert>
+  <select id="findIdentityProof" resultType="com.wuai.company.entity.request.IdentityProof" parameterType="com.wuai.company.entity.request.IdentityProof">
+        SELECT *
+        FROM t_identity_proof
+        where deleted = FALSE
+        <if test="state != null" >
+         and state = #{state,jdbcType=INTEGER}
+        </if>
+        <if test="userId != null" >
+        and user_id = #{userId,jdbcType=INTEGER}
+        </if>
+        <if test="id != null" >
+        id = #{id,jdbcType=INTEGER}
+        </if>
+        <if test="uuid != null" >
+        and uuid = #{uuid,jdbcType=VARCHAR}
+        </if>
+         ORDER BY create_time desc
+    </select>
+    <update id="updateIdentityProofSelective" parameterType="com.wuai.company.entity.request.IdentityProof">
+    update t_identity_proof
+    <set>
+      <if test="uuid != null">
+        uuid = #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="proof != null">
+        proof = #{proof,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null">
+        id_number = #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="satrtDate != null">
+        satrt_date = #{satrtDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        end_date = #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+</mapper>

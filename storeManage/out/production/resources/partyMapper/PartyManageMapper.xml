@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuai.company.store.manage.mapper.PartyManageMapper">
+
+
+
+
+    <!--<cache flushInterval="40000" eviction="FIFO"/>-->
+
+    <select id="sysValue" resultType="java.lang.String">
+        SELECT value from t_sys where `key` = #{key} and status = '1'
+    </select>
+    <update id="upParty">
+        UPDATE t_party
+        <set>
+            <if test="request.boyMoney!=null and request.boyMoney!=''">`boy_money`=#{request.boyMoney},</if>
+            <if test="request.girlMoney!=null and request.girlMoney!=''">`girl_money`=#{request.girlMoney},</if>
+            <if test="request.minStart!=null and request.minStart!=''">`min_start`=#{request.minStart},</if>
+            <if test="request.date!=null and request.date!=''">`date`=#{request.date},</if>
+            <if test="request.time!=null and request.time!=''">`time`=#{request.time},</if>
+            <if test="request.week!=null and request.week!=''">`week`=#{request.week},</if>
+            <if test="request.endTime!=null and request.endTime!=''">`end_time`=#{request.endTime},</if>
+            <if test="request.topic!=null and request.topic!=''">`topic`=#{request.topic},</if>
+            <if test="request.content!=null and request.content!=''">`content`=#{request.content},</if>
+            `pictures`=#{request.pictures},
+            `video`=#{request.video},
+            `type`=#{request.type},
+            <if test="request.classify!=null and request.classify!=''">`classify`=#{request.classify},</if>
+            <if test="request.icon!=null and request.icon!=''">`icon`=#{request.icon},</if>
+            <if test="request.userName!=null and request.userName!=''">`username`=#{request.userName},</if>
+            <if test="request.name!=null and request.name!=''">`store_name`=#{request.name},</if>
+            <if test="request.phoneNum!=null and request.phoneNum!=''">`phone_num`=#{request.phoneNum},</if>
+            <if test="request.longitude!=null and request.longitude!=''">`longitude`=#{request.longitude},</if>
+            <if test="request.latitude!=null and request.latitude!=''">`latitude`=#{request.latitude},</if>
+            <if test="request.address!=null and request.address!=''">`address`=#{request.address},</if>
+            <if test="request.cxamineAndVerify!=null and request.cxamineAndVerify!=''">`examine_and_verify`=#{request.cxamineAndVerify}</if>
+        </set>
+        where uuid = #{request.uuid}
+    </update>
+    <insert id="addParty">
+        insert into t_party( `uuid`,`boy_money`,`girl_money`,`min_start`,`date`,`time`,`week`,`end_time`,`topic`,
+        `content`,`pictures`,`video`,`type`,`classify`,`icon`,`username`,`store_name`,`phone_num`,`longitude`,`latitude`,`address`,`examine_and_verify`)
+        SELECT #{request.uuid}, #{request.boyMoney}, #{request.girlMoney}, #{request.minStart}, #{request.date}, #{request.time},
+        #{request.week}, #{request.endTime}, #{request.topic}, #{request.content},#{request.pictures}, #{request.video}, #{request.type}, #{request.classify}
+        , #{request.icon}, #{request.userName}, #{request.name}, #{request.phoneNum}, #{request.longitude}, #{request.latitude}, #{request.address}, #{request.cxamineAndVerify}
+        from dual WHERE not EXISTS (SELECT uuid from t_party where uuid = #{request.uuid})
+    </insert>
+    <select id="findMerchantUserByName" resultType="com.wuai.company.entity.MerchantUser">
+        SELECT * from t_merchant_user where username = #{name} and deleted = FALSE
+    </select>
+    <select id="findPartyAll" resultType="com.wuai.company.entity.Response.PartyDetailedInformationResponse">
+        SELECT * from t_party where `store_name`=#{name} and deleted=FALSE
+          <if test="value!=null and value!=''">and examine_and_verify=#{value}</if>
+        limit #{pageNum},10
+    </select>
+    <select id="sizeOfParty" resultType="java.lang.Integer">
+        SELECT count(uuid) from t_party where `store_name`=#{name} and deleted=FALSE <if test="value!=null and value!=''">and examine_and_verify=#{value}</if>
+    </select>
+    <update id="delParty">
+        UPDATE t_party set deleted =1 where uuid = #{uuid}
+    </update>
+    <select id="findAllMessages" resultType="com.wuai.company.entity.Response.MessageAllResponse">
+        SELECT a.*,b.nick_name,b.icon from t_party_message a left join t_user b on a.user_id=b.id where party_id = #{uuid}
+    </select>
+</mapper>

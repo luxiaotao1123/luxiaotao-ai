@@ -1,0 +1,13 @@
+rootProject.name = 'trunks'
+include 'order'
+include 'commons'
+include 'scheduler'
+include 'user'
+include 'task'
+include 'store'
+include 'storeManage'
+include 'markingSystem'
+include 'rpc'
+include 'pms'
+include 'party'
+

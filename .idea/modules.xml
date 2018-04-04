@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commons/commons.iml" filepath="$PROJECT_DIR$/.idea/modules/commons/commons.iml" group="commons" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commons/commons_main.iml" filepath="$PROJECT_DIR$/.idea/modules/commons/commons_main.iml" group="commons" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commons/commons_test.iml" filepath="$PROJECT_DIR$/.idea/modules/commons/commons_test.iml" group="commons" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/markingSystem/markingSystem.iml" filepath="$PROJECT_DIR$/.idea/modules/markingSystem/markingSystem.iml" group="markingSystem" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/markingSystem/markingSystem_main.iml" filepath="$PROJECT_DIR$/.idea/modules/markingSystem/markingSystem_main.iml" group="markingSystem" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/markingSystem/markingSystem_test.iml" filepath="$PROJECT_DIR$/.idea/modules/markingSystem/markingSystem_test.iml" group="markingSystem" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/order/order.iml" filepath="$PROJECT_DIR$/.idea/modules/order/order.iml" group="order" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/order/order_main.iml" filepath="$PROJECT_DIR$/.idea/modules/order/order_main.iml" group="order" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/order/order_test.iml" filepath="$PROJECT_DIR$/.idea/modules/order/order_test.iml" group="order" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/party/party.iml" filepath="$PROJECT_DIR$/.idea/modules/party/party.iml" group="party" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/party/party_main.iml" filepath="$PROJECT_DIR$/.idea/modules/party/party_main.iml" group="party" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/party/party_test.iml" filepath="$PROJECT_DIR$/.idea/modules/party/party_test.iml" group="party" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pms/pms.iml" filepath="$PROJECT_DIR$/.idea/modules/pms/pms.iml" group="pms" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pms/pms_main.iml" filepath="$PROJECT_DIR$/.idea/modules/pms/pms_main.iml" group="pms" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pms/pms_test.iml" filepath="$PROJECT_DIR$/.idea/modules/pms/pms_test.iml" group="pms" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rpc/rpc.iml" filepath="$PROJECT_DIR$/.idea/modules/rpc/rpc.iml" group="rpc" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rpc/rpc_main.iml" filepath="$PROJECT_DIR$/.idea/modules/rpc/rpc_main.iml" group="rpc" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rpc/rpc_test.iml" filepath="$PROJECT_DIR$/.idea/modules/rpc/rpc_test.iml" group="rpc" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scheduler/scheduler.iml" filepath="$PROJECT_DIR$/.idea/modules/scheduler/scheduler.iml" group="scheduler" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scheduler/scheduler_main.iml" filepath="$PROJECT_DIR$/.idea/modules/scheduler/scheduler_main.iml" group="scheduler" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scheduler/scheduler_test.iml" filepath="$PROJECT_DIR$/.idea/modules/scheduler/scheduler_test.iml" group="scheduler" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/store/store.iml" filepath="$PROJECT_DIR$/.idea/modules/store/store.iml" group="store" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/storeManage/storeManage.iml" filepath="$PROJECT_DIR$/.idea/modules/storeManage/storeManage.iml" group="storeManage" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/storeManage/storeManage_main.iml" filepath="$PROJECT_DIR$/.idea/modules/storeManage/storeManage_main.iml" group="storeManage" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/storeManage/storeManage_test.iml" filepath="$PROJECT_DIR$/.idea/modules/storeManage/storeManage_test.iml" group="storeManage" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/store/store_main.iml" filepath="$PROJECT_DIR$/.idea/modules/store/store_main.iml" group="store" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/store/store_test.iml" filepath="$PROJECT_DIR$/.idea/modules/store/store_test.iml" group="store" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/task/task.iml" filepath="$PROJECT_DIR$/.idea/modules/task/task.iml" group="task" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/task/task_main.iml" filepath="$PROJECT_DIR$/.idea/modules/task/task_main.iml" group="task" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/task/task_test.iml" filepath="$PROJECT_DIR$/.idea/modules/task/task_test.iml" group="task" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/trunks.iml" filepath="$PROJECT_DIR$/.idea/modules/trunks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/user/user.iml" filepath="$PROJECT_DIR$/.idea/modules/user/user.iml" group="user" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/user/user_main.iml" filepath="$PROJECT_DIR$/.idea/modules/user/user_main.iml" group="user" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/user/user_test.iml" filepath="$PROJECT_DIR$/.idea/modules/user/user_test.iml" group="user" />
+    </modules>
+  </component>
+</project>

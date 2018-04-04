@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuai.company.order.mapper.LabelMapper">
+
+    <resultMap id="LabelResult" type="Labels">
+        <result column="key" property="key" jdbcType="VARCHAR" javaType="String"/>
+        <result column="value" property="value" jdbcType="VARCHAR" javaType="String"/>
+        <result column="note" property="note" jdbcType="VARCHAR" javaType="String"/>
+        <result column="explain" property="explain" jdbcType="VARCHAR" javaType="String"/>
+        <result column="status" property="status" jdbcType="TINYINT" javaType="Integer"/>
+        <result column="time" property="time" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    </resultMap>
+
+    <cache flushInterval="40000" eviction="FIFO"/>
+
+    <!--查询个性标签-->
+    <select id="findLabel" resultMap="LabelResult">
+        SELECT * from t_sys_label
+    </select>
+
+
+</mapper>

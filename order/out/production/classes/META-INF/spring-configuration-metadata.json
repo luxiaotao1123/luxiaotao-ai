@@ -1,0 +1,62 @@
+{
+  "groups": [
+    {
+      "name": "scenes",
+      "sourceType": "com.wuai.company.order.util.ScenesConfig",
+      "type": "com.wuai.company.order.util.ScenesConfig"
+    },
+    {
+      "name": "vipCost",
+      "sourceType": "com.wuai.company.order.util.VipCostConfig",
+      "type": "com.wuai.company.order.util.VipCostConfig"
+    }
+  ],
+  "hints": [],
+  "properties": [
+    {
+      "name": "scenes.bar",
+      "sourceType": "com.wuai.company.order.util.ScenesConfig",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "scenes.gym",
+      "sourceType": "com.wuai.company.order.util.ScenesConfig",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "scenes.ktv",
+      "sourceType": "com.wuai.company.order.util.ScenesConfig",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "scenes.theatre",
+      "sourceType": "com.wuai.company.order.util.ScenesConfig",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "vipCost.grateful-fee",
+      "sourceType": "com.wuai.company.order.util.VipCostConfig",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "vipCost.label",
+      "sourceType": "com.wuai.company.order.util.VipCostConfig",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "vipCost.place",
+      "sourceType": "com.wuai.company.order.util.VipCostConfig",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "vipCost.star",
+      "sourceType": "com.wuai.company.order.util.VipCostConfig",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "vipCost.time",
+      "sourceType": "com.wuai.company.order.util.VipCostConfig",
+      "type": "java.lang.String"
+    }
+  ]
+}

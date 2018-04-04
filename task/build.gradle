@@ -1,0 +1,17 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+
+jar {
+
+    baseName "task"
+}
+
+dependencies {
+
+    compile project(':commons')
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuai.company.scheduler.mapper.TimeTaskMapper">
+    <resultMap id="TimeTaskResult" type="TimeTask">
+        <result column="id" property="id" jdbcType="INTEGER" javaType="Integer"/>
+        <result column="schedule_task_index" property="scheduleTaskIndex" jdbcType="VARCHAR" javaType="String"/>
+        <result column="time_task_name" property="timeTaskName" jdbcType="VARCHAR" javaType="String"/>
+        <result column="execute_time" property="executeTime" jdbcType="VARCHAR" javaType="String"/>
+        <result column="params" property="params" jdbcType="VARCHAR" javaType="String"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+        <result column="deleted" property="deleted" jdbcType="BIT" javaType="Boolean"/>
+    </resultMap>
+
+
+    <cache flushInterval="40000" eviction="FIFO"/>
+
+
+    <select id="findTimeTaskAll" resultMap="TimeTaskResult">
+        select * from t_time_task WHERE deleted=FALSE ;
+    </select>
+
+
+    <insert id="saveTimeTask" useGeneratedKeys="true" keyProperty="id" parameterType="TimeTask">
+        INSERT INTO t_time_task (`schedule_task_index`,`time_task_name`,`execute_time`,`params`)
+       SELECT   #{scheduleTaskIndex},#{timeTaskName},#{executeTime},#{params} FROM dual WHERE NOT EXISTS (SELECT  time_task_name from  t_time_task where time_task_name =#{timeTaskName})
+    </insert>
+
+    <update id="updateTimeTask" parameterType="Orders">
+        UPDATE t_time_task
+        <trim prefix="set" prefixOverrides=",">
+            update_time=now()
+            <if test="scheduleTaskIndex !=null and scheduleTaskIndex != '' ">
+                , schedule_task_index=#{scheduleTaskIndex}
+            </if>
+            <if test="executeTime !=null and executeTime != '' ">
+                , execute_time=#{executeTime}
+            </if>
+            <if test="params !=null and params != '' ">
+                , params=#{params}
+            </if>
+            <if test="deleted !=null">
+                , deleted = #{deleted}
+            </if>
+        </trim>
+        WHERE time_task_name = #{timeTaskName}
+
+    </update>
+
+
+</mapper>

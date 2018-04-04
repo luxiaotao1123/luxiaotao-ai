@@ -1,0 +1,237 @@
+spring:
+  output:
+    ansi:
+      enabled: always
+  profiles:
+    active: test
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+  jackson:
+    default-property-inclusion: non_null
+
+
+---
+logging:
+  path: D://log//
+  file: test.log
+  level: debug
+
+spring:
+  profiles:   test
+  redis:
+    host: test.52woo.com
+    port: 8048
+    database: 2
+    password: nessary
+
+
+server:
+  port: 9203
+
+debug: false
+jdbc:
+   url: jdbc:mysql://test.52woo.com:3310/wuai?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&verifyServerCertificate=false
+   user: wuai
+   pass: wuai2017
+
+mybatis:
+  mapperLocations: classpath*:**/*Mapper.xml
+  typeAliasesPackage: com.wuai.company.entity,com.wuai.company.order.entity,com.wuai.company.user.entity,com.wuai.company.store.entity
+
+  configuration:
+    mapUnderscoreToCamelCase: true
+    cache-enabled: true
+
+rabbit:
+      host: test.52woo.com
+      name: wuai
+      pass: wuai
+appraiseGrade:
+      default:
+        grade: 4.5
+        lowest: 4
+
+
+invitation:
+      personCount:
+        proportion: 80
+        place: 30
+        time: 30
+        label: 10
+        star: 10
+        gratefulFee: 10
+
+vipCost:
+      place: 30
+      time: 30
+      label: 10
+      star: 10
+      gratefulFee: 10
+
+receive:
+      place: 30
+      time: 30
+      label: 10
+      star: 10
+      gratefulFee: 10
+tcp:
+  port: 8073
+
+
+aliPay:
+   partner:  2088721218082184
+   notifyUrl: http://www.52Woo.com:9203/pay/aliPayNotify
+   app:
+      id: 2017060807450301
+   public:
+      key: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDI6d306Q8fIfCOaTXyiUeJHkrIvYISRcc73s3vF1ZT7XN8RNPwJxo8pWaJMmvyTn9N4HQ632qJBVHf8sxHi/fEsraprwCtzvzQETrNRwVxLO5jVmRGi60j8Ue1efIlzPXV9je9mkjzOmdssymZkh2QhUrCmZYI/FCEa3/cNMW0QIDAQAB
+   private:
+      key: MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAMlVI52n1syjau3YuTQtwFk4wjWJxjso6/Mcc3lUwYPtPnLKlSKG7pxl8PB2EGL7QkD6Ekqrd4Ljt6c6fm4RSyGZ7/DGgOzTgK5kprCnhz0DfUfDnxFfc+i6Lue6DE+vpQIIwH3ZtXxVx8SxWvTmwTngxuDYh6TQJDz1ukwAeukJAgMBAAECgYEAoqu/0ypBS6beRr7NJXOx7mUFxexD1pkBy7Q5ONdaZBXUVzuHtBYBxSw4uJEsPE13ArkK/nn8Xi1PvjZs4NHoORaTQIFxXojJxXvQ8uSX+c99OTBkg6eUkC2yrg4xkoaSMThjPLiUcdr/AiEkYhxfz7fuxYoCytoj9T7c6aiNFYECQQDv4c44TobJdG4cQBoXcGlQGOZU7caxROd0+yDapSyTjaD+dHweFSb5dhPicusoNLfJrH6sO1LAFW1eDHUemSKtAkEA1tw/J0UAiqVXWH9sugoSSC93wqG5ZDunQlONAiLenOZqYzFVfOMnm+YvDDdFQ4xVa4qOw2ffmFIwO0U3gjPHTQJAFV1qLY+o55ZsHC4FZOMJLi4ZjaTj1nQJnVykj3S4pKevmBot18wQfZVrrfaIRTt0xwyK97IM67i81eyMHd6LvQJAJAHfF46py5Jv8+XO69KaQ7yovlZqAlE485Wa8Pu1AOhgdeUjpX1P+wF1av+sPOi8u/wJdtfmkdlcOeKcrdZNlQJAbFxTJD0aqUWQN2P+pgEj6KZGaY4edfxtgw4lCOslGN0G14NLrhcfa9XI9iHJuOehPs5+ZgvlmJwn2XJAB4LLzg==
+
+
+pay:
+  gatewayUrl: https://zmopenapi.zmxy.com.cn/openapi.do
+  appId: 1003663
+  privateKey: MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAMbLIYFHEadlnbx3/9ny8ClDm3am1dWEkbCGnB5F9U52SbtKpck67II3j22Z4nKcRcUd98iCzpc84X8gHZmMSuYyOcw4Nx9ME+SjyKS5jHUT+HUaQoMj/zdXH9TsEs0iqElzSZk366FgrpwfloxNOB0ShwLwuMbp9wOUVePGfoUHAgMBAAECgYEAhSl0nCB7FuLesmy/mcM+VKXQ8b335zsSTGkfErhSBej+otLyEsXBv8hv7z7xjUxZAB1+6XWV5YEGnB1rNnvffv0U6AFq7v6eSEP0ngqljfGcCkZFTeDr9qjp9nH4fkQKfZYNrZBCMH19K/2wNM0pmMLKnsJkv1i+akks0uF1ZeECQQDq17OwLWZE4llKtXGuC57Z3JMXw8s1zN2OLeGYIwhCCAIVD0wj3sXvGMpMsB/8wQIzGWHp5GhPJ8e+izD+1TuLAkEA2LQCbamqOwQQzgZttqWGV1kLKow5JF8jej2Njt0VcQINAP/BdmSasXzyHQE7sgvRlL4p62bAco/052htO4q79QJATg9U0wLEM7FpLMQS/V8vdgszeXrDWSa3nkLx8bfzTr+KsaVcEbBC6q66z7LbbxBYwtN1EGGzqlv2sQdjSdFm8QJBALIPJzeog6G+c3h2O8wqMjqvhcdONN239tTIovpSmv2ia8D4ZaS8gYd5XQ+MJdrkby9DGfq9EUCRHPDQE4ErO8kCQQDa4gBXy28xmtRXz0385gr3PkYW6tnYGuzMmqrvOf4ikhuiyXQBwVwyGdvcMxMTM/rESP4Psl6tf+zUvsowf2GK
+  publicKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD7JVq/eQArkEjuoOPXHzg/zz1029ayuucKDweeZZBVJiSDGZjqcsm+/TyIDm+CKx0bfBYXScOO6qsIfXxMGeT4gUPH7YdtdhdMLfBai2EcGTl4aZHaEVLclA1d4llxgG+TrFg18t8SI+PfjtfhN1mUlXITVN0QedVBXK7xxPGWZQIDAQAB
+
+
+qiniu:
+    accessKey: tN38nlZoe1cdg1JwhEeZ_LQK6nSnAGunB7ejXRR_
+    secretKey: HpNKyXg9KoazmIowE8UR12D8Ar6LMYVei-7n_QL3
+    bucketName: image
+
+scenes:
+    bar: 酒吧
+    ktv: ktv
+    gym: 健身房
+    theatre: 电影院
+
+vip:
+  vip0: 0
+  vip1: 1
+  vip2: 2
+  vip3: 3
+  vip4: 4
+  vip5: 5
+
+sys:
+  delayed: 3
+  robotization: 5
+  defaultVideo:  http://or7smfzot.bkt.clouddn.com/FqxjEfiDTIUk-iL025ymme-41y7q
+
+
+---
+logging:
+  path: /stock/logs/log/
+  file: dev.log
+spring:
+  profiles:   dev
+  redis:
+    host: www.52woo.com
+    port: 8048
+    database: 1
+    password: nessary
+
+
+server:
+  port: 9203
+
+debug: false
+jdbc:
+   url: jdbc:mysql://www.52woo.com:3310/wuai?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&verifyServerCertificate=false
+   user: wuai
+   pass: 2017
+
+mybatis:
+  mapperLocations: classpath*:**/*Mapper.xml
+  typeAliasesPackage: com.wuai.company.entity,com.wuai.company.order.entity,com.wuai.company.user.entity,com.wuai.company.store.entity
+
+  configuration:
+    mapUnderscoreToCamelCase: true
+    cache-enabled: true
+
+rabbit:
+      host: www.52woo.com
+      name: wuai
+      pass: wuai
+
+
+invitation:
+      personCount:
+        proportion: 80
+        place: 30
+        time: 30
+        label: 10
+        star: 10
+        gratefulFee: 10
+
+vipCost:
+      place: 30
+      time: 30
+      label: 10
+      star: 10
+      gratefulFee: 10
+
+receive:
+      place: 30
+      time: 30
+      label: 10
+      star: 10
+      gratefulFee: 10
+tcp:
+  port: 8073
+
+aliPay:
+   partner:  2088721218082184
+   notifyUrl: http://www.52Woo.com:9203/pay/aliPayNotify
+   app:
+      id: 2017060807450301
+   public:
+      key: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDI6d306Q8fIfCOaTXyiUeJHkrIvYISRcc73s3vF1ZT7XN8RNPwJxo8pWaJMmvyTn9N4HQ632qJBVHf8sxHi/fEsraprwCtzvzQETrNRwVxLO5jVmRGi60j8Ue1efIlzPXV9je9mkjzOmdssymZkh2QhUrCmZYI/FCEa3/cNMW0QIDAQAB
+   private:
+      key: MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAMlVI52n1syjau3YuTQtwFk4wjWJxjso6/Mcc3lUwYPtPnLKlSKG7pxl8PB2EGL7QkD6Ekqrd4Ljt6c6fm4RSyGZ7/DGgOzTgK5kprCnhz0DfUfDnxFfc+i6Lue6DE+vpQIIwH3ZtXxVx8SxWvTmwTngxuDYh6TQJDz1ukwAeukJAgMBAAECgYEAoqu/0ypBS6beRr7NJXOx7mUFxexD1pkBy7Q5ONdaZBXUVzuHtBYBxSw4uJEsPE13ArkK/nn8Xi1PvjZs4NHoORaTQIFxXojJxXvQ8uSX+c99OTBkg6eUkC2yrg4xkoaSMThjPLiUcdr/AiEkYhxfz7fuxYoCytoj9T7c6aiNFYECQQDv4c44TobJdG4cQBoXcGlQGOZU7caxROd0+yDapSyTjaD+dHweFSb5dhPicusoNLfJrH6sO1LAFW1eDHUemSKtAkEA1tw/J0UAiqVXWH9sugoSSC93wqG5ZDunQlONAiLenOZqYzFVfOMnm+YvDDdFQ4xVa4qOw2ffmFIwO0U3gjPHTQJAFV1qLY+o55ZsHC4FZOMJLi4ZjaTj1nQJnVykj3S4pKevmBot18wQfZVrrfaIRTt0xwyK97IM67i81eyMHd6LvQJAJAHfF46py5Jv8+XO69KaQ7yovlZqAlE485Wa8Pu1AOhgdeUjpX1P+wF1av+sPOi8u/wJdtfmkdlcOeKcrdZNlQJAbFxTJD0aqUWQN2P+pgEj6KZGaY4edfxtgw4lCOslGN0G14NLrhcfa9XI9iHJuOehPs5+ZgvlmJwn2XJAB4LLzg==
+
+
+pay:
+  gatewayUrl: https://zmopenapi.zmxy.com.cn/openapi.do
+  appId: 1003663
+  privateKey: MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAMbLIYFHEadlnbx3/9ny8ClDm3am1dWEkbCGnB5F9U52SbtKpck67II3j22Z4nKcRcUd98iCzpc84X8gHZmMSuYyOcw4Nx9ME+SjyKS5jHUT+HUaQoMj/zdXH9TsEs0iqElzSZk366FgrpwfloxNOB0ShwLwuMbp9wOUVePGfoUHAgMBAAECgYEAhSl0nCB7FuLesmy/mcM+VKXQ8b335zsSTGkfErhSBej+otLyEsXBv8hv7z7xjUxZAB1+6XWV5YEGnB1rNnvffv0U6AFq7v6eSEP0ngqljfGcCkZFTeDr9qjp9nH4fkQKfZYNrZBCMH19K/2wNM0pmMLKnsJkv1i+akks0uF1ZeECQQDq17OwLWZE4llKtXGuC57Z3JMXw8s1zN2OLeGYIwhCCAIVD0wj3sXvGMpMsB/8wQIzGWHp5GhPJ8e+izD+1TuLAkEA2LQCbamqOwQQzgZttqWGV1kLKow5JF8jej2Njt0VcQINAP/BdmSasXzyHQE7sgvRlL4p62bAco/052htO4q79QJATg9U0wLEM7FpLMQS/V8vdgszeXrDWSa3nkLx8bfzTr+KsaVcEbBC6q66z7LbbxBYwtN1EGGzqlv2sQdjSdFm8QJBALIPJzeog6G+c3h2O8wqMjqvhcdONN239tTIovpSmv2ia8D4ZaS8gYd5XQ+MJdrkby9DGfq9EUCRHPDQE4ErO8kCQQDa4gBXy28xmtRXz0385gr3PkYW6tnYGuzMmqrvOf4ikhuiyXQBwVwyGdvcMxMTM/rESP4Psl6tf+zUvsowf2GK
+  publicKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD7JVq/eQArkEjuoOPXHzg/zz1029ayuucKDweeZZBVJiSDGZjqcsm+/TyIDm+CKx0bfBYXScOO6qsIfXxMGeT4gUPH7YdtdhdMLfBai2EcGTl4aZHaEVLclA1d4llxgG+TrFg18t8SI+PfjtfhN1mUlXITVN0QedVBXK7xxPGWZQIDAQAB
+
+
+qiniu:
+    accessKey: tN38nlZoe1cdg1JwhEeZ_LQK6nSnAGunB7ejXRR_
+    secretKey: HpNKyXg9KoazmIowE8UR12D8Ar6LMYVei-7n_QL3
+    bucketName: image
+
+scenes:
+    bar: 酒吧
+    ktv: ktv
+    gym: 健身房
+    theatre: 电影院
+
+vip:
+  vip0: 0
+  vip1: 1
+  vip2: 2
+  vip3: 3
+  vip4: 4
+  vip5: 5
+
+timeTask:
+  orders: orders
+
+sys:
+  delayed: 3
+  robotization: 5
+  
+aliyun:
+  AppKey：24829972 
+  AppSecret：e2467d89812c99419869015d52d23c03
+  AppCode：33d7bda16b6f465da90e598a33780602
+
+    

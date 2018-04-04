@@ -1,0 +1,24 @@
+    <script type="text/javascript"
+                    src="http://api.map.baidu.com/api?v=2.0&ak=MclkIs6Tv09tXD4LDPHVTMg5coXEphDz"></script>
+       
+        <script type="text/javascript">
+       
+	   
+	     window.onload=function(){
+		 
+		 url=window.location.href;
+		x=url.split("x=")[1].split("&")[0];
+		y=url.split("y=")[1];
+		
+		 document.write(conver(x,y));
+		 
+		 }
+	   
+        function conver(x,y){
+        
+         var map = new BMap.Map("allmap");
+        var b = new BMap.MercatorProjection().pointToLngLat(new BMap.Pixel(x/100,y/100));
+      
+		return (b.lng+":"+ b.lat)
+        }
+       </script>

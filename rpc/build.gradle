@@ -1,0 +1,16 @@
+apply plugin: 'java'
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+
+jar {
+
+    baseName "rpc"
+}
+
+dependencies {
+    compile project(':commons')
+    compile group: 'io.netty', name: 'netty-all', version: '4.1.12.Final'
+}
